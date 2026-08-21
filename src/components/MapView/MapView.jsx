@@ -12,6 +12,29 @@ import "./MapView.css";
 const INDIA_CENTER = [22.5, 80.5];
 const INDIA_BOUNDS = [[6.0, 62.0], [38.5, 100.0]];
 
+const MAP_STYLES = {
+  paper: {
+    label: "Paper",
+    hint: "Museum map",
+    url: "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+    attribution: '&copy; <a href="https://carto.com/attributions">CARTO</a>',
+  },
+  terrain: {
+    label: "Terrain",
+    hint: "Relief & roads",
+    url: "https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png",
+    attribution:
+      'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="https://opentopomap.org">OpenTopoMap</a>',
+  },
+  satellite: {
+    label: "Satellite",
+    hint: "Aerial view",
+    url:
+      "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+    attribution: 'Tiles &copy; <a href="https://www.esri.com/">Esri</a>',
+  },
+};
+
 function buildIcon(location, selectedId) {
   const isSelected = location.id === selectedId;
   const isDimmed   = selectedId !== null && !isSelected;
@@ -179,6 +202,7 @@ export default function MapView({ locations, selectedId, onSelectLocation }) {
   const [effects,    setEffects]    = useState([]);
   const [hoveredLoc, setHoveredLoc] = useState(null);
   const [hoverPos,   setHoverPos]   = useState({ x: 0, y: 0 });
+  const [mapStyle,   setMapStyle]   = useState("paper");
 
   const removeEffect = useCallback((id) => {
     setEffects((prev) => prev.filter((e) => e.id !== id));
@@ -217,7 +241,7 @@ export default function MapView({ locations, selectedId, onSelectLocation }) {
   }, [locations, selectedId]);
 
   return (
-    <div className="map-view" style={{ position: "absolute", inset: 0 }}>
+    <div className={`map-view map-view--${mapStyle}`} style={{ position: "absolute", inset: 0 }}>
       <MapContainer
         center={INDIA_CENTER} zoom={5} minZoom={4} maxZoom={12}
         maxBounds={INDIA_BOUNDS} maxBoundsViscosity={0.85}
@@ -226,8 +250,9 @@ export default function MapView({ locations, selectedId, onSelectLocation }) {
         <MapController mapRef={mapRef} />
         <FlyToSelection locations={locations} selectedId={selectedId} />
         <TileLayer
-          attribution='&copy; <a href="https://carto.com/attributions">CARTO</a>'
-          url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
+          key={mapStyle}
+          attribution={MAP_STYLES[mapStyle].attribution}
+          url={MAP_STYLES[mapStyle].url}
         />
         {locations.map((loc) => (
           <Marker
@@ -242,6 +267,32 @@ export default function MapView({ locations, selectedId, onSelectLocation }) {
           />
         ))}
       </MapContainer>
+
+      <div className="map-style-control glass glass-card" aria-label="Choose a map view">
+        <div className="map-style-heading">
+          <span className="map-style-kicker">Basemap</span>
+          <span className="map-style-scope">Every period</span>
+        </div>
+        <div className="map-style-options" role="group" aria-label="Map view options">
+          {Object.entries(MAP_STYLES).map(([id, style]) => {
+            const isActive = mapStyle === id;
+            return (
+              <button
+                key={id}
+                type="button"
+                className={`map-style-option${isActive ? " is-active" : ""}`}
+                aria-pressed={isActive}
+                aria-label={`${style.label}: ${style.hint}`}
+                title={style.hint}
+                onClick={() => setMapStyle(id)}
+              >
+                <span className={`map-style-swatch map-style-swatch--${id}`} aria-hidden="true" />
+                <span>{style.label}</span>
+              </button>
+            );
+          })}
+        </div>
+      </div>
 
       {/* ── Overlay: click burst effects + hover preview card ── */}
       <div className="map-ripple-layer">

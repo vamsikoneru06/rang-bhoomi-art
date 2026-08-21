@@ -18,6 +18,8 @@ Then open the printed local URL (usually http://localhost:5173).
   `periods.js`. Add a new location by appending one object to
   `locations.json` following the existing schema — no code changes needed.
 - `src/components/MapView/` — the Leaflet map and category marker icons.
+  The basemap switcher offers Paper, Terrain, and Satellite views; the
+  selected view stays available while any historical period is filtered.
 - `src/components/InfoPanel/` — the slide-in/bottom-sheet detail panel and
   image gallery (placeholder tiles until real photography is added — see
   `images[]` in the location schema).

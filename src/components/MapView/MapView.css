@@ -12,6 +12,122 @@
   font-family: var(--font-body);
 }
 
+/* ── Basemap switcher ───────────────────────────────────────── */
+.map-style-control {
+  position: absolute;
+  top: 118px;
+  right: var(--space-4);
+  z-index: 600;
+  min-width: 246px;
+  padding: 10px;
+  border-radius: var(--radius-lg);
+  pointer-events: auto;
+}
+
+.map-style-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: 0 3px 7px;
+}
+
+.map-style-kicker,
+.map-style-scope {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.map-style-kicker {
+  color: var(--color-ink);
+}
+
+.map-style-scope {
+  color: var(--color-accent);
+}
+
+.map-style-options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+}
+
+.map-style-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  min-width: 0;
+  padding: 6px 4px 7px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 9px;
+  color: var(--color-ink-soft);
+  background: rgba(255, 251, 245, 0.18);
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition:
+    transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1),
+    color 0.18s ease,
+    background 0.18s ease,
+    border-color 0.18s ease;
+}
+
+.map-style-option:hover {
+  transform: translateY(-1px);
+  color: var(--color-ink);
+  background: rgba(255, 251, 245, 0.42);
+}
+
+.map-style-option:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.map-style-option.is-active {
+  color: var(--color-ink);
+  border-color: rgba(181, 67, 44, 0.48);
+  background: rgba(255, 251, 245, 0.72);
+  box-shadow: 0 4px 12px rgba(43, 33, 24, 0.1);
+}
+
+.map-style-swatch {
+  display: block;
+  width: 58px;
+  height: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.62);
+  border-radius: 5px;
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.3);
+}
+
+.map-style-swatch--paper {
+  background:
+    linear-gradient(135deg, transparent 47%, rgba(181, 67, 44, 0.72) 48%, rgba(181, 67, 44, 0.72) 51%, transparent 52%),
+    linear-gradient(20deg, #d7d0c3 0 28%, #f5f0e8 29% 63%, #e3ddd3 64%);
+}
+
+.map-style-swatch--terrain {
+  background:
+    repeating-linear-gradient(155deg, transparent 0 4px, rgba(72, 99, 63, 0.32) 5px 6px),
+    linear-gradient(135deg, #c8d6b2 0 33%, #e7ddbd 34% 62%, #9db5a3 63%);
+}
+
+.map-style-swatch--satellite {
+  background:
+    linear-gradient(145deg, rgba(210, 183, 117, 0.55), transparent 45%),
+    linear-gradient(25deg, #294c4b 0 28%, #617156 29% 63%, #8a7952 64%);
+}
+
+.map-view--satellite .map-ripple-layer,
+.map-view--terrain .map-ripple-layer {
+  /* Preserve the art markers' visual priority on photographic tiles. */
+  isolation: isolate;
+}
+
 /* ── Pin anatomy ────────────────────────────────────────────── */
 .leaflet-marker-icon {
   background: transparent !important;
@@ -184,4 +300,27 @@
   border-radius: 6px 0 0 0 !important;
   font-size: 10px !important;
   color: var(--color-ink-faint) !important;
+}
+
+@media (max-width: 640px) {
+  .map-style-control {
+    top: 164px;
+    right: var(--space-3);
+    min-width: 220px;
+    padding: 8px;
+  }
+
+  .map-style-heading {
+    padding-bottom: 5px;
+  }
+
+  .map-style-option {
+    padding: 5px 3px 6px;
+    font-size: 9px;
+  }
+
+  .map-style-swatch {
+    width: 50px;
+    height: 22px;
+  }
 }
