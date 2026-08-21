@@ -1,16 +1,34 @@
-# React + Vite
+# Rang Bhoomi — An Interactive Map of Indian Art History
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A digital-museum web app: explore India on a map, click a region, and learn
+its art movement, artists, artworks, and historical context.
 
-Currently, two official plugins are available:
+## Run locally
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+```
+npm install
+npm run dev
+```
 
-## React Compiler
+Then open the printed local URL (usually http://localhost:5173).
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Project structure
 
-## Expanding the Oxlint configuration
+- `src/data/` — content: `locations.json` (14 locations), `categories.js`,
+  `periods.js`. Add a new location by appending one object to
+  `locations.json` following the existing schema — no code changes needed.
+- `src/components/MapView/` — the Leaflet map and category marker icons.
+- `src/components/InfoPanel/` — the slide-in/bottom-sheet detail panel and
+  image gallery (placeholder tiles until real photography is added — see
+  `images[]` in the location schema).
+- `src/components/SearchFilterBar/` — text search + category filter chips.
+- `src/components/Timeline/` — historical period filter strip.
+- `src/hooks/useFilteredLocations.js` — combines search/category/period
+  filters into the list `MapView` renders.
+- `src/styles/tokens.css` — the design-token palette/type/spacing scale
+  every component's CSS draws from.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## Design spec
+
+See `docs/superpowers/specs/2026-08-21-india-art-map-design.md` for the
+full design rationale.
