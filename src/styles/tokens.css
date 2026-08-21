@@ -1,0 +1,50 @@
+:root {
+  /* Colors — warm parchment + terracotta palette */
+  --color-bg: #faf3e8;
+  --color-surface: #ffffff;
+  --color-surface-alt: #f3e8d6;
+  --color-ink: #2b2118;
+  --color-ink-soft: #5a4a3a;
+  --color-ink-faint: #8a7862;
+  --color-border: #e4d5bf;
+  --color-accent: #b5432c;
+  --color-accent-soft: #d97a5f;
+  --color-gold: #a6791f;
+  --color-overlay: rgba(43, 33, 24, 0.55);
+
+  /* Category colors */
+  --color-classical-art: #a6432c;
+  --color-folk-art: #c77c1f;
+  --color-miniature-painting: #5b3a8e;
+  --color-temple-art: #8a6d1b;
+  --color-modern-art: #1f6f6f;
+  --color-tribal-art: #7a8b3c;
+
+  /* Typography */
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-body: "Work Sans", "Segoe UI", sans-serif;
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.5rem;
+  --text-2xl: 2rem;
+  --text-3xl: 2.75rem;
+
+  /* Spacing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+
+  /* Radius & shadow */
+  --radius-sm: 4px;
+  --radius-md: 10px;
+  --radius-lg: 20px;
+  --shadow-panel: 0 12px 40px rgba(43, 33, 24, 0.18);
+  --shadow-card: 0 4px 16px rgba(43, 33, 24, 0.12);
+}
