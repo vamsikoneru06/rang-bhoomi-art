@@ -1,0 +1,643 @@
+[
+  {
+    "id": "ajanta-ellora",
+    "name": "Ajanta & Ellora Caves",
+    "state": "Maharashtra",
+    "coordinates": [20.5522, 75.7033],
+    "category": "temple-art",
+    "tradition": "Ancient Buddhist & Rock-Cut Art",
+    "periodIds": ["ancient", "medieval"],
+    "periodLabel": "2nd century BCE – 10th century CE",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Ajanta-maharashtra.jpg/1280px-Ajanta-maharashtra.jpg",
+    "historicalContext": "Carved into a horseshoe-shaped cliff above the Waghora river, the Ajanta caves were excavated in two main phases (2nd century BCE and 5th–6th century CE) as Buddhist monastic retreats. Nearby Ellora, cut between the 6th and 10th centuries CE, houses Buddhist, Hindu, and Jain shrines side by side — a rare record of religious coexistence. Both sites were abandoned and reclaimed by jungle for centuries before British officers rediscovered them in 1819.",
+    "artForms": ["Buddhist cave murals", "Rock-cut monastic architecture", "Narrative relief sculpture"],
+    "artists": [{ "name": "Anonymous monastic and guild artisans", "note": "No individual painters are named; work produced collectively over centuries." }],
+    "artworks": [
+      { "title": "The Bodhisattva Padmapani, Cave 1", "note": "Ajanta's most reproduced mural, prized for its serene expression and fluid line." },
+      { "title": "Kailasa Temple, Ellora (Cave 16)", "note": "A full temple carved downward from a single rock face — the largest monolithic structure in the world." },
+      { "title": "Jataka tale murals, Cave 17", "note": "Painted narrative cycles depicting the Buddha's past lives." }
+    ],
+    "significance": "Ajanta and Ellora anchor the entire timeline of Indian art — nearly every later painting and temple tradition traces lineage back here.",
+    "images": [
+      { "caption": "Padmapani mural, Cave 1", "alt": "The Bodhisattva Padmapani mural at Ajanta", "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Ajanta-maharashtra.jpg/800px-Ajanta-maharashtra.jpg" },
+      { "caption": "Kailasa Temple, Ellora", "alt": "The rock-cut Kailasa Temple at Ellora", "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Ellora_Kailash_Temple.jpg/800px-Ellora_Kailash_Temple.jpg" }
+    ]
+  },
+  {
+    "id": "khajuraho",
+    "name": "Khajuraho",
+    "state": "Madhya Pradesh",
+    "coordinates": [24.8318, 79.9199],
+    "category": "temple-art",
+    "tradition": "Chandela Temple Sculpture",
+    "periodIds": ["medieval"],
+    "periodLabel": "950 – 1050 CE",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Kandariya-mahadeva-temple.jpg/1280px-Kandariya-mahadeva-temple.jpg",
+    "historicalContext": "Built between roughly 950 and 1050 CE by the Chandela dynasty, the Khajuraho temple group originally numbered over 80 sandstone temples, of which 25 survive. They are celebrated for dense exterior sculpture programs — deities, celestial dancers, and famously explicit erotic friezes — read as depictions of tantric philosophy and the full range of human experience.",
+    "artForms": ["Nagara-style temple architecture", "High-relief stone sculpture", "Erotic and devotional friezes"],
+    "artists": [{ "name": "Anonymous Chandela-era guild sculptors", "note": "No individual sculptors are named in surviving inscriptions." }],
+    "artworks": [
+      { "title": "Kandariya Mahadeva Temple", "note": "The largest and most refined of the surviving temples, dedicated to Shiva." },
+      { "title": "Lakshmana Temple friezes", "note": "Sculptural bands depicting court life, battle, and mithuna couples." }
+    ],
+    "significance": "Khajuraho represents the peak of North Indian temple sculpture, its frank treatment of the erotic alongside the sacred one of the most-discussed statements in Indian art history.",
+    "images": [
+      { "caption": "Kandariya Mahadeva Temple", "alt": "The towering Kandariya Mahadeva temple", "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Kandariya-mahadeva-temple.jpg/800px-Kandariya-mahadeva-temple.jpg" },
+      { "caption": "Sculptural friezes detail", "alt": "Detail of sculptural friezes at Khajuraho", "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Khajuraho_sculpture.jpg/800px-Khajuraho_sculpture.jpg" }
+    ]
+  },
+  {
+    "id": "hampi",
+    "name": "Hampi",
+    "state": "Karnataka",
+    "coordinates": [15.335, 76.46],
+    "category": "classical-art",
+    "tradition": "Vijayanagara Classical Art",
+    "periodIds": ["medieval"],
+    "periodLabel": "14th – 16th century CE",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Hampi1.jpg/1280px-Hampi1.jpg",
+    "historicalContext": "Hampi was the capital of the Vijayanagara Empire, one of medieval South India's largest Hindu kingdoms. Its ruins spread across a boulder-strewn landscape combining temple complexes, royal enclosures, and market streets — an unusually complete picture of a classical South Indian capital before it was sacked in 1565.",
+    "artForms": ["Dravidian temple architecture", "Monolithic and relief stone sculpture", "Courtly urban planning"],
+    "artists": [{ "name": "Anonymous Vijayanagara court sculptors", "note": "Work produced under royal and temple patronage rather than individual authorship." }],
+    "artworks": [
+      { "title": "Vittala Temple's stone chariot and musical pillars", "note": "A shrine built as a stone chariot, with pillars said to ring with musical notes when struck." },
+      { "title": "Ugra Narasimha monolith", "note": "A colossal single-block sculpture of Vishnu's lion-man avatar." }
+    ],
+    "significance": "Hampi shows classical Hindu temple art at imperial scale, its patronage model mirroring how Mughal and Rajput courts would later fund painting.",
+    "images": [
+      { "caption": "Vittala Temple stone chariot", "alt": "The Vittala Temple stone chariot at Hampi", "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Hampi1.jpg/800px-Hampi1.jpg" },
+      { "caption": "Hampi ruins landscape", "alt": "Temple ruins at Hampi", "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Hampi_virupaksha_temple.jpg/800px-Hampi_virupaksha_temple.jpg" }
+    ]
+  },
+  {
+    "id": "thanjavur",
+    "name": "Thanjavur",
+    "state": "Tamil Nadu",
+    "coordinates": [10.787, 79.1378],
+    "category": "classical-art",
+    "tradition": "Chola Bronzes & Thanjavur Painting",
+    "periodIds": ["medieval", "regional"],
+    "periodLabel": "9th century CE – 19th century",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Tanjore_big_temple_overview_2.jpg/1280px-Tanjore_big_temple_overview_2.jpg",
+    "historicalContext": "Thanjavur was the Chola dynasty's capital and, centuries later, a Maratha-ruled court. The city's Brihadeeswarar Temple (1010 CE) anchors its celebrated bronze-casting tradition. Thanjavur painting — a distinctive 18th–19th century style using gold leaf, gesso relief, and inset gems on wood panels — gives the city its second artistic identity.",
+    "artForms": ["Thanjavur gold-leaf panel painting", "Chola bronze casting (lost-wax)", "Temple mural painting"],
+    "artists": [{ "name": "Chola-era bronze casters and Thanjavur workshops", "note": "Bronzes and paintings produced by unnamed hereditary guild workshops." }],
+    "artworks": [
+      { "title": "Nataraja bronzes", "note": "Chola-era lost-wax bronze images of Shiva as the cosmic dancer." },
+      { "title": "Krishna as Butter Thief (Tanjore style)", "note": "A stock Thanjavur painting subject rendered in gold relief and glass-inlay." }
+    ],
+    "significance": "Thanjavur uniquely bridges two eras: the Chola bronzes that define South Indian sculpture, and the gem-and-gold painting style that became a template for temple-town devotional art.",
+    "images": [
+      { "caption": "Brihadeeswarar Temple, Thanjavur", "alt": "The Brihadeeswarar Temple tower", "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Tanjore_big_temple_overview_2.jpg/800px-Tanjore_big_temple_overview_2.jpg" },
+      { "caption": "Nataraja bronze, Chola period", "alt": "A Chola Nataraja bronze sculpture", "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Nataraja.jpg/800px-Nataraja.jpg" }
+    ]
+  },
+  {
+    "id": "mahabalipuram",
+    "name": "Mahabalipuram",
+    "state": "Tamil Nadu",
+    "coordinates": [12.6208, 80.1982],
+    "category": "temple-art",
+    "tradition": "Pallava Rock-Cut Architecture",
+    "periodIds": ["ancient"],
+    "periodLabel": "7th – 8th century CE",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Pancha_rathas.jpg/1280px-Pancha_rathas.jpg",
+    "historicalContext": "A 7th–8th century port town under the Pallava dynasty, Mahabalipuram is an open-air laboratory of early Dravidian architecture: temples carved from single boulders (rathas), relief-carved cave shrines, and the Shore Temple — an early step toward freestanding temple construction.",
+    "artForms": ["Monolithic rock-cut temples (rathas)", "Bas-relief narrative carving", "Early structural temple architecture"],
+    "artists": [{ "name": "Anonymous Pallava court sculptors", "note": "No individual sculptors are named in surviving inscriptions." }],
+    "artworks": [
+      { "title": "Descent of the Ganges (Arjuna's Penance)", "note": "One of the largest open-air bas-reliefs in the world, carved across two boulders." },
+      { "title": "Pancha Rathas", "note": "Five monolithic temples, each carved to imitate a different architectural style." }
+    ],
+    "significance": "Mahabalipuram marks the transition from rock-cut to freestanding temple building, shaping every later South Indian temple.",
+    "images": [
+      { "caption": "Pancha Rathas, Mahabalipuram", "alt": "The five monolithic Pancha Rathas temples", "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Pancha_rathas.jpg/800px-Pancha_rathas.jpg" },
+      { "caption": "Shore Temple", "alt": "The Shore Temple at Mahabalipuram", "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Shore_Temple_Mahabalipuram.jpg/800px-Shore_Temple_Mahabalipuram.jpg" }
+    ]
+  },
+  {
+    "id": "kerala-mural-art",
+    "name": "Kerala",
+    "state": "Kerala",
+    "coordinates": [10.5941, 76.0417],
+    "category": "temple-art",
+    "tradition": "Kerala Mural Painting",
+    "periodIds": ["medieval", "regional"],
+    "periodLabel": "9th – 18th century CE",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Kerala_backwaters_2.jpg/1280px-Kerala_backwaters_2.jpg",
+    "historicalContext": "From roughly the 9th to the 18th century, temple and palace walls across Kerala were painted with a distinct mural tradition: natural mineral pigments, thick sculptural outlines, and densely packed compositions of Hindu deities. Surviving examples cluster around temple towns such as Guruvayur, Ettumanoor, and Padmanabhapuram Palace.",
+    "artForms": ["Fresco-secco temple wall painting", "Palace mural painting", "Natural pigment preparation"],
+    "artists": [{ "name": "Hereditary Chitrakar temple-guild painters", "note": "Mural painting passed down within specific families attached to individual temples." }],
+    "artworks": [
+      { "title": "Ettumanoor Mahadeva Temple murals", "note": "Among the best-preserved large-scale Kerala mural cycles." },
+      { "title": "Padmanabhapuram Palace murals", "note": "A rare surviving example applied to a royal residence rather than a temple." }
+    ],
+    "significance": "Kerala's murals preserve a painting tradition that runs parallel to North Indian miniature painting — a distinct regional visual language.",
+    "images": [
+      { "caption": "Kerala backwaters landscape", "alt": "Kerala backwaters", "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Kerala_backwaters_2.jpg/800px-Kerala_backwaters_2.jpg" },
+      { "caption": "Temple mural detail", "alt": "Kerala temple mural detail", "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Padmanabhaswamy_temple.jpg/800px-Padmanabhaswamy_temple.jpg" }
+    ]
+  },
+  {
+    "id": "jaipur-udaipur",
+    "name": "Jaipur & Udaipur",
+    "state": "Rajasthan",
+    "coordinates": [26.9124, 75.7873],
+    "category": "miniature-painting",
+    "tradition": "Rajasthani Miniature Painting",
+    "periodIds": ["mughal", "regional"],
+    "periodLabel": "16th – 19th century",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/City_Palace%2C_Udaipur_2013.jpg/1280px-City_Palace%2C_Udaipur_2013.jpg",
+    "historicalContext": "As Mughal painting fragmented after the 17th century, Rajput courts across Rajasthan — Mewar (Udaipur), Amber/Jaipur, Bundi, Kishangarh — developed their own miniature schools, trading Mughal naturalism for flatter color, bolder outline, and devotional subject matter drawn from Krishna bhakti poetry.",
+    "artForms": ["Miniature painting on paper", "Devotional Krishna-lila illustration", "Court and hunting scene painting"],
+    "artists": [
+      { "name": "Nihal Chand", "note": "Kishangarh court painter credited with the iconic 'Bani Thani' portrait style." },
+      { "name": "Sahibdin", "note": "Leading 17th-century Mewar court painter of illustrated manuscripts." }
+    ],
+    "artworks": [
+      { "title": "Bani Thani (Nihal Chand, c. 1750)", "note": "An elongated-eyed portrait often called 'India's Mona Lisa'." },
+      { "title": "Ragamala paintings", "note": "Series pairing musical modes (ragas) with painted mood and scene." }
+    ],
+    "significance": "The Rajasthani schools kept indigenous painting traditions alive and evolving after Mughal patronage declined.",
+    "images": [
+      { "caption": "City Palace, Udaipur", "alt": "The City Palace of Udaipur on Lake Pichola", "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/City_Palace%2C_Udaipur_2013.jpg/800px-City_Palace%2C_Udaipur_2013.jpg" },
+      { "caption": "Hawa Mahal, Jaipur", "alt": "The Hawa Mahal palace in Jaipur", "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Hawa_Mahal%2C_Jaipur.jpg/800px-Hawa_Mahal%2C_Jaipur.jpg" }
+    ]
+  },
+  {
+    "id": "hyderabad-deccani",
+    "name": "Hyderabad",
+    "state": "Telangana",
+    "coordinates": [17.385, 78.4867],
+    "category": "miniature-painting",
+    "tradition": "Deccani Miniature Painting",
+    "periodIds": ["mughal", "regional"],
+    "periodLabel": "16th – 18th century CE",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Charminar_2014.jpg/1280px-Charminar_2014.jpg",
+    "historicalContext": "Painting at the Deccan sultanates — Bijapur, Golconda, and later Hyderabad — developed independently of the Mughal court, absorbing Persian, Turkish, and European influence through the Deccan's Indian Ocean trade contacts. Its palette is richer and more saturated than Mughal painting, with elongated figures and lush, almost surreal backgrounds.",
+    "artForms": ["Deccani miniature painting", "Golconda/Hyderabad court portraiture", "Qutb Shahi manuscript illustration"],
+    "artists": [
+      { "name": "Farrukh Beg", "note": "Persian-trained painter who worked at the Bijapur Deccan court." },
+      { "name": "Deccan court ateliers under the Qutb Shahis", "note": "Produced most surviving Golconda-period work collectively." }
+    ],
+    "artworks": [
+      { "title": "Ibrahim Adil Shah II with a hawk", "note": "Typical Deccani royal portrait combining Persian elegance with Indian setting." },
+      { "title": "Ragamala paintings of the Deccan", "note": "A Deccani counterpart to the Rajasthani raga-mood painting tradition." }
+    ],
+    "significance": "Deccani painting proves that Mughal patronage wasn't the only engine of Indian miniature art.",
+    "images": [
+      { "caption": "Charminar, Hyderabad", "alt": "The iconic Charminar monument", "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Charminar_2014.jpg/800px-Charminar_2014.jpg" },
+      { "caption": "Golconda Fort", "alt": "Golconda Fort ruins near Hyderabad", "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Golconda_Fort.jpg/800px-Golconda_Fort.jpg" }
+    ]
+  },
+  {
+    "id": "madhubani",
+    "name": "Madhubani",
+    "state": "Bihar",
+    "coordinates": [26.3667, 86.0667],
+    "category": "folk-art",
+    "tradition": "Madhubani (Mithila) Painting",
+    "periodIds": ["regional", "contemporary"],
+    "periodLabel": "Centuries-old; global recognition from the 1960s",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Madhubani_paintings_1.jpg/1280px-Madhubani_paintings_1.jpg",
+    "historicalContext": "Madhubani (or Mithila) painting has been made by women in the villages around Madhubani district for generations, on freshly plastered mud walls for festivals and weddings. It stayed a domestic practice until a 1966–67 drought relief effort encouraged artists to transfer it to paper for sale.",
+    "artForms": ["Wall and floor mural painting", "Paper and canvas Mithila painting", "Natural pigment line and pattern work"],
+    "artists": [
+      { "name": "Sita Devi", "note": "Padma Shri recipient credited with popularizing the bold Bharni fill style." },
+      { "name": "Ganga Devi", "note": "Known for the fine-line Kachni style and for depicting personal events." },
+      { "name": "Baua Devi", "note": "Leading exponent of the Godna (tattoo-pattern) style." }
+    ],
+    "artworks": [
+      { "title": "Kohbar Ghar murals", "note": "Ritual nuptial-chamber paintings of fertility and union symbols." },
+      { "title": "My Life with Cancer (Ganga Devi)", "note": "A rare Madhubani work depicting personal autobiography rather than myth." }
+    ],
+    "significance": "Madhubani is the clearest example of a folk tradition graduating into the fine-art mainstream while staying in the hands of the rural women who originated it.",
+    "images": [
+      { "caption": "Madhubani painting detail", "alt": "Colourful Madhubani painting", "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Madhubani_paintings_1.jpg/800px-Madhubani_paintings_1.jpg" },
+      { "caption": "Mithila art motifs", "alt": "Traditional Mithila art motifs", "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Madhubani_art.jpg/800px-Madhubani_art.jpg" }
+    ]
+  },
+  {
+    "id": "odisha-pattachitra",
+    "name": "Odisha",
+    "state": "Odisha",
+    "coordinates": [19.877, 85.801],
+    "category": "folk-art",
+    "tradition": "Pattachitra Scroll Painting",
+    "periodIds": ["medieval", "regional"],
+    "periodLabel": "12th century CE onward",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Jagannath_Temple_Puri.jpg/1280px-Jagannath_Temple_Puri.jpg",
+    "historicalContext": "Pattachitra ('cloth picture') is a cloth-based scroll painting tradition centered on Puri and the village of Raghurajpur, tied closely to the Jagannath Temple cult. Artists prepare canvas with tamarind-seed paste and chalk, then paint with natural pigments, most often depicting Jagannath, Krishna, and Radha.",
+    "artForms": ["Cloth scroll painting (Pattachitra)", "Palm-leaf manuscript illustration", "Natural pigment preparation"],
+    "artists": [{ "name": "Raghurajpur village artist families", "note": "Most Pattachitra painters work within hereditary family workshops." }],
+    "artworks": [
+      { "title": "Jagannath, Balabhadra and Subhadra Patti", "note": "The tradition's central devotional subject, echoing the temple's own icons." },
+      { "title": "Dasavatara Patti", "note": "Scroll depicting the ten avatars of Vishnu in sequence." }
+    ],
+    "significance": "Pattachitra directly supplies the visual vocabulary of the annual Jagannath Rath Yatra festival.",
+    "images": [
+      { "caption": "Jagannath Temple, Puri", "alt": "The towering Jagannath Temple at Puri", "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Jagannath_Temple_Puri.jpg/800px-Jagannath_Temple_Puri.jpg" },
+      { "caption": "Pattachitra scroll detail", "alt": "Detail of a Pattachitra scroll painting", "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Pattachitra.jpg/800px-Pattachitra.jpg" }
+    ]
+  },
+  {
+    "id": "gujarat-folk-art",
+    "name": "Gujarat (Kutch)",
+    "state": "Gujarat",
+    "coordinates": [23.242, 69.6669],
+    "category": "folk-art",
+    "tradition": "Kutch Embroidery, Bandhani & Mata ni Pachedi",
+    "periodIds": ["regional", "contemporary"],
+    "periodLabel": "Centuries-old textile traditions, still practiced",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Rann_of_Kutch.jpg/1280px-Rann_of_Kutch.jpg",
+    "historicalContext": "Gujarat's Kutch region sustains one of India's richest folk-art ecosystems: mirror-work and thread embroidery (Kutch/Rabari embroidery), tie-dye textiles (Bandhani), and Mata ni Pachedi — painted temple cloths made by the Vaghari community as portable shrines.",
+    "artForms": ["Kutch and Rabari embroidery", "Bandhani tie-dye textile art", "Mata ni Pachedi painted temple cloth"],
+    "artists": [
+      { "name": "Vaghari community painters", "note": "Hereditary practitioners of Mata ni Pachedi." },
+      { "name": "Rabari and Kutchi embroidery artisans", "note": "Predominantly women, working in community- and family-specific stitch vocabularies." }
+    ],
+    "artworks": [
+      { "title": "Mata ni Pachedi cloth shrines", "note": "Large hand-painted cloths depicting the mother goddess, used as portable temples." },
+      { "title": "Kutch Rabari embroidery panels", "note": "Dense mirror-and-thread work traditionally made for a bride's dowry." }
+    ],
+    "significance": "Gujarat's folk traditions show how textile and cloth-based art carried religious and social function for communities with limited access to temple or court patronage.",
+    "images": [
+      { "caption": "Rann of Kutch landscape", "alt": "The vast white salt flats of the Rann of Kutch", "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Rann_of_Kutch.jpg/800px-Rann_of_Kutch.jpg" },
+      { "caption": "Kutch embroidery work", "alt": "Colourful Kutch embroidery with mirror work", "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Kutch_Embroidery.jpg/800px-Kutch_Embroidery.jpg" }
+    ]
+  },
+  {
+    "id": "warli",
+    "name": "Warli Region",
+    "state": "Maharashtra",
+    "coordinates": [19.97, 72.75],
+    "category": "tribal-art",
+    "tradition": "Warli Tribal Painting",
+    "periodIds": ["ancient", "contemporary"],
+    "periodLabel": "Ancient origins; documented fine art since the 1970s",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Warli_painting.jpg/1280px-Warli_painting.jpg",
+    "historicalContext": "The Warli tribal community of the hills north of Mumbai paint with rice-paste on mud walls in a spare, geometric style — circles, triangles, and lines built into human and animal figures — traditionally for weddings and harvest rituals. The style was brought to national attention mainly through Jivya Soma Mashe from the 1970s onward.",
+    "artForms": ["Wall mural painting (rice-paste on mud)", "Geometric figurative pattern work", "Paper and canvas Warli painting"],
+    "artists": [
+      { "name": "Jivya Soma Mashe", "note": "Padma Shri recipient credited with adapting Warli ritual painting into a fine-art practice." },
+      { "name": "Balu Mashe", "note": "Continued his father's work into narrative, exhibition-scale compositions." }
+    ],
+    "artworks": [
+      { "title": "Lagna Chowk (wedding mural)", "note": "The tradition's original ritual context: a painted square marking a wedding altar." },
+      { "title": "Tarpa dance compositions", "note": "Circular figure compositions depicting the community's harvest dance." }
+    ],
+    "significance": "Warli's journey from ritual wall painting to gallery and textile design shows how indigenous visual language can reach global audiences without a court or colonial institution driving it.",
+    "images": [
+      { "caption": "Warli painting, tarpa dance", "alt": "Classic Warli painting showing the tarpa dance", "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Warli_painting.jpg/800px-Warli_painting.jpg" },
+      { "caption": "Warli geometric motifs", "alt": "Warli tribal art geometric patterns", "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Warli_Art.jpg/800px-Warli_Art.jpg" }
+    ]
+  },
+  {
+    "id": "shantiniketan",
+    "name": "Shantiniketan",
+    "state": "West Bengal",
+    "coordinates": [23.6833, 87.6833],
+    "category": "modern-art",
+    "tradition": "Contextual Modernism",
+    "periodIds": ["bengal-school", "modern"],
+    "periodLabel": "1901 – 1950s",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Sangit_Bhavana.jpg/1280px-Sangit_Bhavana.jpg",
+    "historicalContext": "Founded by Rabindranath Tagore in 1901, Shantiniketan rejected European-style academic training. Tagore encouraged students to draw on rural Bengali life, nature, and pan-Asian aesthetics. Nandalal Bose built its Kala Bhavana art faculty into the most influential art school of early 20th-century India.",
+    "artForms": ["Contextual Modernism", "Mural and fresco painting", "Sculpture in terracotta and cement"],
+    "artists": [
+      { "name": "Nandalal Bose", "note": "Kala Bhavana's principal; blended Indian folk idioms with modernist composition." },
+      { "name": "Benode Behari Mukherjee", "note": "Muralist known for the Hindi Bhavan frescoes, made largely after losing his sight." },
+      { "name": "Ramkinkar Baij", "note": "Pioneered public outdoor sculpture in India using local laterite and cement." }
+    ],
+    "artworks": [
+      { "title": "Santal Family (Ramkinkar Baij)", "note": "A landmark cement sculpture treating tribal subjects with modernist monumentality." },
+      { "title": "Lives of the Medieval Saints (Benode Behari Mukherjee)", "note": "Fresco cycle at Hindi Bhavan, Shantiniketan." }
+    ],
+    "significance": "Shantiniketan trained the generation that defined modern Indian art without copying European modernism.",
+    "images": [
+      { "caption": "Sangit Bhavana, Shantiniketan", "alt": "The music building at Shantiniketan", "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Sangit_Bhavana.jpg/800px-Sangit_Bhavana.jpg" },
+      { "caption": "Visva-Bharati campus", "alt": "Visva-Bharati University campus at Shantiniketan", "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Visva-Bharati.jpg/800px-Visva-Bharati.jpg" }
+    ]
+  },
+  {
+    "id": "kolkata-bengal-school",
+    "name": "Kolkata",
+    "state": "West Bengal",
+    "coordinates": [22.5726, 88.3639],
+    "category": "modern-art",
+    "tradition": "Bengal School (Nationalist Revivalism)",
+    "periodIds": ["bengal-school"],
+    "periodLabel": "c. 1905 – 1940s",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Victoria_Memorial_Kolkata.jpg/1280px-Victoria_Memorial_Kolkata.jpg",
+    "historicalContext": "In reaction to colonial academic realism, Abanindranath Tagore founded the Bengal School around 1905, drawing on Mughal and Rajput miniatures, Ajanta murals, and wash techniques from Japanese artists. The Indian Society of Oriental Art, founded in Kolkata in 1907, became its institutional home.",
+    "artForms": ["Wash painting (tempera/watercolor)", "Nationalist historical painting", "Book and journal illustration"],
+    "artists": [
+      { "name": "Abanindranath Tagore", "note": "Founder of the movement; taught at the Government College of Art, Calcutta." },
+      { "name": "Gaganendranath Tagore", "note": "Experimented with Cubist-influenced satire alongside the school's wash style." }
+    ],
+    "artworks": [
+      { "title": "Bharat Mata (Abanindranath Tagore, 1905)", "note": "An allegorical portrait of India as a goddess, widely adopted as a nationalist icon." },
+      { "title": "The Passing of Shah Jahan", "note": "Wash painting exemplifying the school's Mughal-revival technique." }
+    ],
+    "significance": "The Bengal School was the first organized modern art movement in India and direct ancestor of the Shantiniketan style.",
+    "images": [
+      { "caption": "Victoria Memorial, Kolkata", "alt": "The Victoria Memorial building in Kolkata", "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Victoria_Memorial_Kolkata.jpg/800px-Victoria_Memorial_Kolkata.jpg" },
+      { "caption": "Howrah Bridge", "alt": "The iconic Howrah Bridge over the Hooghly river", "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Howrah_Bridge.jpg/800px-Howrah_Bridge.jpg" }
+    ]
+  },
+  {
+    "id": "varanasi",
+    "name": "Varanasi",
+    "state": "Uttar Pradesh",
+    "coordinates": [25.3176, 82.9739],
+    "category": "classical-art",
+    "tradition": "Benarasi Weaving & Ghat Ceremonial Art",
+    "periodIds": ["ancient", "medieval", "mughal"],
+    "periodLabel": "Ancient origins; Mughal patronage from 16th century",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Varanasi_2014.jpg/1280px-Varanasi_2014.jpg",
+    "historicalContext": "Varanasi (Benares) is one of the world's oldest continuously inhabited cities. Its ghats — stone steps leading to the Ganges — have been the site of ritual, performance, and devotional art for millennia. The city is equally famous for Benarasi silk weaving, which reached its height under Mughal patronage in the 16th–17th centuries.",
+    "artForms": ["Benarasi silk brocade weaving (kinkhwab)", "Ghat ritual performance and sand art", "Ivory and wooden craft carving"],
+    "artists": [
+      { "name": "Ansari weaving families", "note": "Muslim weavers of Varanasi who have produced Benarasi silk for centuries." },
+      { "name": "Tulsidas (d. 1623)", "note": "The poet-saint whose Ramcharitmanas transformed devotional visual culture in the city." }
+    ],
+    "artworks": [
+      { "title": "Kinkhwab brocade textiles", "note": "Gold and silver thread woven into silk, originally for Mughal court dress." },
+      { "title": "Ganga Aarti ceremony", "note": "A nightly fire ritual on the ghats, simultaneously visual spectacle and living religious art." }
+    ],
+    "significance": "Varanasi is where Benarasi silk became India's prestige textile, and where the continuous practice of devotional art in an urban setting is most visible.",
+    "images": [
+      { "caption": "Varanasi ghats at dawn", "alt": "Varanasi ghats along the Ganges at dawn", "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Varanasi_2014.jpg/800px-Varanasi_2014.jpg" },
+      { "caption": "Ganga Aarti ceremony", "alt": "The Ganga Aarti fire ceremony at Varanasi", "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Aarti_at_Varanasi.jpg/800px-Aarti_at_Varanasi.jpg" }
+    ]
+  },
+  {
+    "id": "mysore",
+    "name": "Mysore",
+    "state": "Karnataka",
+    "coordinates": [12.2958, 76.6394],
+    "category": "classical-art",
+    "tradition": "Mysore Painting",
+    "periodIds": ["regional", "colonial"],
+    "periodLabel": "c. 1600 – 1900 CE",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Mysore_Palace_in_night.jpg/1280px-Mysore_Palace_in_night.jpg",
+    "historicalContext": "Mysore painting developed under the patronage of the Wodeyar dynasty in the 17th–19th centuries, evolving from the Vijayanagara tradition while absorbing Mughal and Deccani influences. Its hallmarks are gold foil (gold leaf applied before painting), distinctive facial conventions, and devotional subject matter drawn from Vaishnavite and Shaivite mythology.",
+    "artForms": ["Mysore gold-leaf panel painting", "Devotional temple paintings", "Processional banner and scroll paintings"],
+    "artists": [
+      { "name": "Sundaraiah", "note": "One of the last great traditional Mysore painters, active in the early 20th century." },
+      { "name": "Y. Subramanya Raju", "note": "Extended the Mysore tradition into the post-independence era." }
+    ],
+    "artworks": [
+      { "title": "Ganesha with gold leaf (classic Mysore style)", "note": "Gold foil applied before painting gives the deity a luminous, jewel-like quality." },
+      { "title": "Sri Krishnaraja Wadiyar portraits", "note": "Court portraits of the Mysore king combining Indian iconography with realist detail." }
+    ],
+    "significance": "Mysore painting kept the South Indian classical painting tradition alive through the colonial period when most royal patronage systems collapsed.",
+    "images": [
+      { "caption": "Mysore Palace illuminated", "alt": "The Mysore Palace illuminated at night", "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Mysore_Palace_in_night.jpg/800px-Mysore_Palace_in_night.jpg" },
+      { "caption": "Mysore Palace exterior", "alt": "The ornate exterior of Mysore Palace", "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Mysore_Mysuru_Palace_Nov_2019.jpg/800px-Mysore_Mysuru_Palace_Nov_2019.jpg" }
+    ]
+  },
+  {
+    "id": "delhi-mughal",
+    "name": "Delhi — Mughal Court",
+    "state": "Delhi",
+    "coordinates": [28.6562, 77.2410],
+    "category": "miniature-painting",
+    "tradition": "Mughal Court Painting & Architecture",
+    "periodIds": ["mughal"],
+    "periodLabel": "1526 – 1857 CE",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Red_Fort_in_Delhi_03-2016.jpg/1280px-Red_Fort_in_Delhi_03-2016.jpg",
+    "historicalContext": "The Mughal court at Delhi and Agra generated India's most celebrated imperial painting tradition. Under Akbar, Jahangir, and Shah Jahan, a large imperial atelier employed hundreds of painters combining Persian, Indian, and European techniques. The Red Fort at Delhi was the administrative and artistic center from 1648 until British rule.",
+    "artForms": ["Mughal miniature painting", "Court portraiture and imperial biography", "Illuminated manuscript production"],
+    "artists": [
+      { "name": "Basawan", "note": "One of Akbar's greatest court painters, prized for portraiture and narrative composition." },
+      { "name": "Abu al-Hasan", "note": "Jahangir's favourite painter, famed for naturalistic portraits and animal studies." },
+      { "name": "Ustad Mansur", "note": "Court painter under Jahangir, celebrated for botanical and zoological illustrations." }
+    ],
+    "artworks": [
+      { "title": "Akbarnama illustrations", "note": "Narrative paintings recording the life and campaigns of Emperor Akbar." },
+      { "title": "Jahangir portraits (Abu al-Hasan)", "note": "Sensitive, psychologically acute portraits of the emperor." }
+    ],
+    "significance": "The Mughal court created the most internationally influential Indian painting style, synthesising Persian sophistication, Indian naturalism, and European perspective.",
+    "images": [
+      { "caption": "Red Fort, Delhi", "alt": "The Red Fort in Old Delhi", "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Red_Fort_in_Delhi_03-2016.jpg/800px-Red_Fort_in_Delhi_03-2016.jpg" },
+      { "caption": "Jama Masjid, Delhi", "alt": "The Jama Masjid mosque in Delhi", "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Delhi_Jama_Masjid.jpg/800px-Delhi_Jama_Masjid.jpg" }
+    ]
+  },
+  {
+    "id": "konark",
+    "name": "Konark",
+    "state": "Odisha",
+    "coordinates": [19.8876, 86.0946],
+    "category": "temple-art",
+    "tradition": "Sun Temple Sculpture",
+    "periodIds": ["medieval"],
+    "periodLabel": "13th century CE",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Konark_Sun_Temple.jpg/1280px-Konark_Sun_Temple.jpg",
+    "historicalContext": "Built in the 13th century CE by King Narasimhadeva I of the Eastern Ganga dynasty, the Konark Sun Temple was designed as a colossal chariot for the sun god Surya — 24 elaborately carved wheels and 7 horse sculptures form the base. Its sculpture program is among the most varied and accomplished in medieval India.",
+    "artForms": ["Kalinga-style temple architecture", "Wheel and chariot sculptural symbolism", "Erotic and secular friezes"],
+    "artists": [{ "name": "Anonymous Eastern Ganga dynasty stone carvers", "note": "No individual sculptors are named in surviving inscriptions." }],
+    "artworks": [
+      { "title": "The 24 carved chariot wheels", "note": "Each wheel is a sundial; their spokes cast shadows that mark the hours." },
+      { "title": "Chlorite stone panels of the Natamandira", "note": "Some of the finest surviving examples of Kalingan erotic and narrative sculpture." }
+    ],
+    "significance": "Konark represents the apex of Odishan temple sculpture, and its chariot-temple concept — the entire structure as a cosmic vehicle — has no parallel in Indian art.",
+    "images": [
+      { "caption": "Konark Sun Temple", "alt": "The Konark Sun Temple wheel", "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Konark_Sun_Temple.jpg/800px-Konark_Sun_Temple.jpg" },
+      { "caption": "Konark temple wheel detail", "alt": "Detailed carving of a wheel at Konark", "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Konark_wheel.jpg/800px-Konark_wheel.jpg" }
+    ]
+  },
+  {
+    "id": "nathdwara",
+    "name": "Nathdwara",
+    "state": "Rajasthan",
+    "coordinates": [24.9265, 73.8228],
+    "category": "folk-art",
+    "tradition": "Pichwai Painting",
+    "periodIds": ["mughal", "regional"],
+    "periodLabel": "17th century CE onward",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Nathdwara.jpg/1280px-Nathdwara.jpg",
+    "historicalContext": "Pichwai ('that which hangs behind') are large cloth paintings hung behind the idol of Shrinathji at the Nathdwara temple, changed to mark each festival of the Vaishnava calendar. Created by hereditary Nathdwara painters (the Nathwara gharana), each pichwai corresponds to a specific celebration — monsoon, winter, nocturnal worship — producing a rich liturgical art calendar.",
+    "artForms": ["Pichwai cloth painting (devotional backdrop)", "Festival scene painting", "Gold and natural pigment work"],
+    "artists": [
+      { "name": "Ghasi family painters", "note": "One of the most celebrated Nathdwara painting families, active for generations." },
+      { "name": "Narottam Narayan Sharma", "note": "20th-century Nathdwara painter who expanded the pichwai market internationally." }
+    ],
+    "artworks": [
+      { "title": "Sharad Purnima pichwai", "note": "A large moonlit scene with Shrinathji surrounded by cows and gopis, made for the autumn full-moon festival." },
+      { "title": "Lotus pichwai", "note": "Shrinathji surrounded by lotus flowers, associated with the monsoon worship season." }
+    ],
+    "significance": "Pichwai painting shows how Indian devotional art can be directly liturgical — each painting is a functional object in a living religious calendar, not primarily a decorative artifact.",
+    "images": [
+      { "caption": "Nathdwara town and temple", "alt": "The Shrinathji temple at Nathdwara", "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Nathdwara.jpg/800px-Nathdwara.jpg" },
+      { "caption": "Pichwai painting detail", "alt": "Detail of a colourful pichwai devotional cloth painting", "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Pichwai_painting.jpg/800px-Pichwai_painting.jpg" }
+    ]
+  },
+  {
+    "id": "bishnupur",
+    "name": "Bishnupur",
+    "state": "West Bengal",
+    "coordinates": [23.0796, 87.319],
+    "category": "temple-art",
+    "tradition": "Terracotta Temple Art",
+    "periodIds": ["medieval", "regional"],
+    "periodLabel": "17th – 18th century CE",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Rasmancha%2C_Bishnupur.jpg/1280px-Rasmancha%2C_Bishnupur.jpg",
+    "historicalContext": "The Malla kings of Bishnupur, devout Vaishnavas lacking access to stone in Bengal's alluvial plains, built their temples entirely of brick and terracotta from the 17th century onward. The result is a unique regional style — curved roof profiles borrowed from Bengal's bamboo-and-thatch huts, applied to brick temples covered in densely narrative terracotta panels.",
+    "artForms": ["Terracotta panel temple decoration", "Atchala and Jor bangla curved-roof temple forms", "Narrative relief depicting Radha-Krishna and Ramayana"],
+    "artists": [{ "name": "Anonymous Malla-era terracotta guilds", "note": "Workshop production under direct royal Malla patronage." }],
+    "artworks": [
+      { "title": "Rasmancha (1600 CE)", "note": "A unique pyramid-form brick building where the Ras festival was held; the oldest surviving structure in Bishnupur." },
+      { "title": "Jor Bangla temple terracotta panels", "note": "Densely packed panels depicting Radha-Krishna and scenes from the Mahabharata." }
+    ],
+    "significance": "Bishnupur proves that a royal Indian art tradition can emerge from constraints (no stone, no skilled masons) by radically adapting local craft — in this case terracotta — into a new monumental idiom.",
+    "images": [
+      { "caption": "Rasmancha, Bishnupur", "alt": "The pyramid-form Rasmancha temple", "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Rasmancha%2C_Bishnupur.jpg/800px-Rasmancha%2C_Bishnupur.jpg" },
+      { "caption": "Bishnupur terracotta temple", "alt": "A terracotta temple at Bishnupur", "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Bishnupur_temple.jpg/800px-Bishnupur_temple.jpg" }
+    ]
+  },
+  {
+    "id": "sarnath",
+    "name": "Sarnath",
+    "state": "Uttar Pradesh",
+    "coordinates": [25.375, 83.0238],
+    "category": "classical-art",
+    "tradition": "Buddhist Sculpture & Stupa Art",
+    "periodIds": ["ancient"],
+    "periodLabel": "3rd century BCE – 12th century CE",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Dhamek_stupa.jpg/1280px-Dhamek_stupa.jpg",
+    "historicalContext": "Sarnath, where the Buddha delivered his first sermon after enlightenment, became the most important site of early Buddhist art. Patronized by Ashoka in the 3rd century BCE and continuously until the 12th century CE, it produced the Lion Capital (now India's national emblem) and the finest examples of Gupta-period Buddhist sculpture.",
+    "artForms": ["Gupta-period polished sandstone sculpture", "Stupa architecture and relief carving", "Buddhist figurative iconography"],
+    "artists": [{ "name": "Anonymous Gupta-era sculptors", "note": "Sarnath's workshops in the 5th–6th centuries CE represent the high point of classical Indian sculpture." }],
+    "artworks": [
+      { "title": "Sarnath Lion Capital (3rd century BCE)", "note": "Ashoka's pillar capital — now India's national emblem — found at Sarnath." },
+      { "title": "Gupta-period Buddha (c. 5th century CE)", "note": "The seated Buddha with the Dharmachakra mudra, the iconic form of the Buddha in India." }
+    ],
+    "significance": "Sarnath produced India's most important Buddhist sculptures and is the direct source of the iconographic conventions — mudras, ushnisha, flame halo — used across all Buddhist art in Asia.",
+    "images": [
+      { "caption": "Dhamek Stupa, Sarnath", "alt": "The cylindrical Dhamek Stupa at Sarnath", "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Dhamek_stupa.jpg/800px-Dhamek_stupa.jpg" },
+      { "caption": "Sarnath museum, Lion Capital", "alt": "The Ashoka Lion Capital at Sarnath museum", "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Ashoka_Pillar_at_Sarnath.jpg/800px-Ashoka_Pillar_at_Sarnath.jpg" }
+    ]
+  },
+  {
+    "id": "jaisalmer",
+    "name": "Jaisalmer",
+    "state": "Rajasthan",
+    "coordinates": [26.9157, 70.9083],
+    "category": "folk-art",
+    "tradition": "Desert Fort Art & Haveli Painting",
+    "periodIds": ["mughal", "regional"],
+    "periodLabel": "12th century CE onward",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Jaisalmer_Fort.jpg/1280px-Jaisalmer_Fort.jpg",
+    "historicalContext": "Jaisalmer, the 'Golden City,' rises from the Thar Desert as a yellow sandstone citadel inhabited since the 12th century. Its havelis (merchant mansions) bear among the finest jali (stone lattice), carved balconies, and interior fresco painting in Rajasthan. The Patwa and Salim Singh havelis are outstanding examples of Rajputana merchant-class art patronage.",
+    "artForms": ["Haveli sandstone carving and jali work", "Rajasthani wall fresco painting", "Miniature painting (Jaisalmer school)"],
+    "artists": [
+      { "name": "Nathu family stone carvers", "note": "Hereditary carvers responsible for much of Jaisalmer's finest jali screens." },
+      { "name": "Patwa merchant family patrons", "note": "Merchants whose five-haveli complex is the most ambitious private building project in Jaisalmer." }
+    ],
+    "artworks": [
+      { "title": "Patwon ki Haveli", "note": "Five interconnected mansions with the most elaborately carved sandstone facades in Jaisalmer." },
+      { "title": "Jaisalmer Fort jali screens", "note": "Stone lattice screens of extraordinary intricacy inside the living fort." }
+    ],
+    "significance": "Jaisalmer shows that in Rajasthan, merchant patronage rivalled royal patronage — the havelis are the grandest non-temple, non-palace buildings in any Rajput city.",
+    "images": [
+      { "caption": "Jaisalmer Fort", "alt": "The golden sandstone Jaisalmer Fort at sunset", "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Jaisalmer_Fort.jpg/800px-Jaisalmer_Fort.jpg" },
+      { "caption": "Patwon ki Haveli", "alt": "The ornately carved Patwon ki Haveli", "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Jaisalmer_haveli.jpg/800px-Jaisalmer_haveli.jpg" }
+    ]
+  },
+  {
+    "id": "pattadakal",
+    "name": "Pattadakal",
+    "state": "Karnataka",
+    "coordinates": [15.948, 75.8177],
+    "category": "temple-art",
+    "tradition": "Chalukya Temple Architecture",
+    "periodIds": ["ancient", "medieval"],
+    "periodLabel": "7th – 8th century CE",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Pattadakal_Group_of_Monuments.jpg/1280px-Pattadakal_Group_of_Monuments.jpg",
+    "historicalContext": "The UNESCO-listed temple complex at Pattadakal contains 10 major temples built by the Chalukya kings of Badami in the 7th–8th centuries CE. Uniquely, the site contains temples in both Nagara (North Indian) and Dravida (South Indian) styles built simultaneously — a laboratory of competing architectural traditions at the moment when each was being codified.",
+    "artForms": ["Early Nagara tower temple construction", "Early Dravida temple construction", "Narrative sculptural programs (Mahabharata, Ramayana)"],
+    "artists": [{ "name": "Anonymous Chalukya court architects and sculptors", "note": "Different temples were built by different queen-patrons of the Chalukya dynasty." }],
+    "artworks": [
+      { "title": "Virupaksha Temple (733–745 CE)", "note": "The largest temple at Pattadakal, built to celebrate the Chalukya defeat of the Pallavas; its plan influenced the Kailasa Temple at Ellora." },
+      { "title": "Sangameshvara Temple", "note": "Early prototype of the Dravida style, revealing the form as it was still being worked out." }
+    ],
+    "significance": "Pattadakal is where the two great traditions of Indian temple architecture — Nagara and Dravida — can be seen side by side at the exact moment of their emergence.",
+    "images": [
+      { "caption": "Pattadakal temple complex", "alt": "The group of monuments at Pattadakal", "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Pattadakal_Group_of_Monuments.jpg/800px-Pattadakal_Group_of_Monuments.jpg" },
+      { "caption": "Virupaksha Temple detail", "alt": "Detail of the Virupaksha Temple at Pattadakal", "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Pattadakal.jpg/800px-Pattadakal.jpg" }
+    ]
+  },
+  {
+    "id": "amritsar",
+    "name": "Amritsar",
+    "state": "Punjab",
+    "coordinates": [31.634, 74.8723],
+    "category": "folk-art",
+    "tradition": "Sikh Art & Illuminated Manuscripts",
+    "periodIds": ["regional", "colonial"],
+    "periodLabel": "17th century CE – present",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Golden_Temple%2C_Amritsar%2C_India_01.jpg/1280px-Golden_Temple%2C_Amritsar%2C_India_01.jpg",
+    "historicalContext": "The Harmandir Sahib (Golden Temple) at Amritsar, completed in its current form in 1604 CE by Guru Arjan Dev, is the most sacred site in Sikhism. Its art program fused Mughal architectural decorativeness with Sikh devotional purpose: gilded marble surfaces, pietra dura inlay, and — inside — a continuous living tradition of illuminated Guru Granth Sahib manuscripts.",
+    "artForms": ["Illuminated Sikh scripture (Guru Granth Sahib)", "Pietra dura marble inlay", "Phulkari embroidery (Punjab folk textile)"],
+    "artists": [
+      { "name": "Anonymous Sikh manuscript calligraphers and illuminators", "note": "The Guru Granth Sahib is the living Sikh guru; its writing is itself a sacred act." },
+      { "name": "Punjabi phulkari embroiderers", "note": "Women's community tradition of floral silk embroidery on coarse cloth." }
+    ],
+    "artworks": [
+      { "title": "The Harmandir Sahib (Golden Temple)", "note": "The gold-clad sanctum sanctorum, its reflection in the sacred pool one of the most photographed sights in India." },
+      { "title": "Illuminated Guru Granth Sahib manuscripts", "note": "Calligraphic scripture with decorated margins — the highest expression of Sikh scriptural art." }
+    ],
+    "significance": "The Golden Temple shows how Sikh religious culture synthesised Mughal decorative art into a new devotional idiom — gold-on-white marble rather than sandstone, open architecture symbolizing universal welcome.",
+    "images": [
+      { "caption": "Golden Temple, Amritsar", "alt": "The Golden Temple reflected in the sacred pool", "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Golden_Temple%2C_Amritsar%2C_India_01.jpg/800px-Golden_Temple%2C_Amritsar%2C_India_01.jpg" },
+      { "caption": "Harmandir Sahib at night", "alt": "The Golden Temple illuminated at night", "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Golden_temple_amritsar.jpg/800px-Golden_temple_amritsar.jpg" }
+    ]
+  },
+  {
+    "id": "mathura",
+    "name": "Mathura",
+    "state": "Uttar Pradesh",
+    "coordinates": [27.4924, 77.6737],
+    "category": "classical-art",
+    "tradition": "Mathura School of Sculpture",
+    "periodIds": ["ancient"],
+    "periodLabel": "1st – 6th century CE",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Mathura_district.jpg/1280px-Mathura_district.jpg",
+    "historicalContext": "Mathura, birthplace of Krishna and a major trade hub, was from the 1st century CE one of the two great workshops of early Indian sculpture (the other being Gandhara). Working in locally quarried spotted red sandstone, Mathura sculptors developed the conventions for representing the Buddha, Jina, and Hindu deities that spread across South and Southeast Asia.",
+    "artForms": ["Red sandstone devotional sculpture", "Early Buddhist and Jain iconography", "Yaksha and fertility figure tradition"],
+    "artists": [{ "name": "Anonymous Kushana and Gupta era sculptors", "note": "Mathura's workshops operated under Kushana and later Gupta patronage." }],
+    "artworks": [
+      { "title": "Seated Buddha (Mathura museum)", "note": "The Kushana-period seated Buddha — clinging robe, pronounced ushnisha — a foundational image type." },
+      { "title": "Dvarapala (door guardian) figures", "note": "Towering yaksha-derived guardian figures flanking temple entrances." }
+    ],
+    "significance": "Mathura is where the recognisable iconography of the Buddha — the ushnisha, the flaming halo, the abhaya mudra — was definitively established and exported across Asia.",
+    "images": [
+      { "caption": "Mathura cityscape", "alt": "Mathura on the Yamuna river", "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Mathura_district.jpg/800px-Mathura_district.jpg" },
+      { "caption": "Dwarkadhish Temple, Mathura", "alt": "The Dwarkadhish Temple at Mathura", "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Dwarkadhish_Temple_Mathura.jpg/800px-Dwarkadhish_Temple_Mathura.jpg" }
+    ]
+  },
+  {
+    "id": "badami",
+    "name": "Badami",
+    "state": "Karnataka",
+    "coordinates": [15.9222, 75.6786],
+    "category": "temple-art",
+    "tradition": "Chalukya Cave Temple Art",
+    "periodIds": ["ancient", "medieval"],
+    "periodLabel": "6th – 8th century CE",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Badami_Caves.jpg/1280px-Badami_Caves.jpg",
+    "historicalContext": "The four cave temples cut into a sandstone cliff at Badami (6th–8th century CE) were commissioned by the Chalukya kings, who made it their first capital. The caves contain the earliest surviving systematic program of Hindu and Jain sculptural iconography in South India, predating Mahabalipuram and Ellora's Hindu caves.",
+    "artForms": ["Rock-cut cave temple excavation", "Hindu and Jain figurative sculpture", "Early Dravida pillar carving"],
+    "artists": [{ "name": "Anonymous Chalukya cave carvers", "note": "The caves were excavated under Chalukya king Kirtivarman I and successors." }],
+    "artworks": [
+      { "title": "18-armed Nataraja, Cave 1", "note": "One of the earliest large-scale images of Shiva dancing — 18 arms arranged to echo the 81 dance postures of the Natya Shastra." },
+      { "title": "Anantasayana Vishnu, Cave 3", "note": "Vishnu reclining on the serpent Ananta — a monumental composition across the full cave wall." }
+    ],
+    "significance": "Badami is where the Chalukya kings first worked out the sculptural vocabulary — how to render deities, how to carve pillars, how to structure a cave temple — that directly influenced Ellora and Mahabalipuram.",
+    "images": [
+      { "caption": "Badami cave temples", "alt": "The Badami cave temples cut into sandstone", "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Badami_Caves.jpg/800px-Badami_Caves.jpg" },
+      { "caption": "Badami cave interior", "alt": "Interior of a Badami cave temple", "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Cave_3%2C_Badami.jpg/800px-Cave_3%2C_Badami.jpg" }
+    ]
+  }
+]

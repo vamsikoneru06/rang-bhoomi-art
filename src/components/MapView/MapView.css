@@ -1,0 +1,326 @@
+/* ── Map container ─────────────────────────────────────────── */
+.map-view {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.map-view .leaflet-container {
+  width: 100%;
+  height: 100%;
+  background: #f0e8da;
+  font-family: var(--font-body);
+}
+
+/* ── Basemap switcher ───────────────────────────────────────── */
+.map-style-control {
+  position: absolute;
+  top: 118px;
+  right: var(--space-4);
+  z-index: 600;
+  min-width: 246px;
+  padding: 10px;
+  border-radius: var(--radius-lg);
+  pointer-events: auto;
+}
+
+.map-style-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: 0 3px 7px;
+}
+
+.map-style-kicker,
+.map-style-scope {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.map-style-kicker {
+  color: var(--color-ink);
+}
+
+.map-style-scope {
+  color: var(--color-accent);
+}
+
+.map-style-options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+}
+
+.map-style-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  min-width: 0;
+  padding: 6px 4px 7px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 9px;
+  color: var(--color-ink-soft);
+  background: rgba(255, 251, 245, 0.18);
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition:
+    transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1),
+    color 0.18s ease,
+    background 0.18s ease,
+    border-color 0.18s ease;
+}
+
+.map-style-option:hover {
+  transform: translateY(-1px);
+  color: var(--color-ink);
+  background: rgba(255, 251, 245, 0.42);
+}
+
+.map-style-option:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.map-style-option.is-active {
+  color: var(--color-ink);
+  border-color: rgba(181, 67, 44, 0.48);
+  background: rgba(255, 251, 245, 0.72);
+  box-shadow: 0 4px 12px rgba(43, 33, 24, 0.1);
+}
+
+.map-style-swatch {
+  display: block;
+  width: 58px;
+  height: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.62);
+  border-radius: 5px;
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.3);
+}
+
+.map-style-swatch--paper {
+  background:
+    linear-gradient(135deg, transparent 47%, rgba(181, 67, 44, 0.72) 48%, rgba(181, 67, 44, 0.72) 51%, transparent 52%),
+    linear-gradient(20deg, #d7d0c3 0 28%, #f5f0e8 29% 63%, #e3ddd3 64%);
+}
+
+.map-style-swatch--terrain {
+  background:
+    repeating-linear-gradient(155deg, transparent 0 4px, rgba(72, 99, 63, 0.32) 5px 6px),
+    linear-gradient(135deg, #c8d6b2 0 33%, #e7ddbd 34% 62%, #9db5a3 63%);
+}
+
+.map-style-swatch--satellite {
+  background:
+    linear-gradient(145deg, rgba(210, 183, 117, 0.55), transparent 45%),
+    linear-gradient(25deg, #294c4b 0 28%, #617156 29% 63%, #8a7952 64%);
+}
+
+.map-view--satellite .map-ripple-layer,
+.map-view--terrain .map-ripple-layer {
+  /* Preserve the art markers' visual priority on photographic tiles. */
+  isolation: isolate;
+}
+
+/* ── Pin anatomy ────────────────────────────────────────────── */
+.leaflet-marker-icon {
+  background: transparent !important;
+  border: none !important;
+  overflow: visible !important;
+}
+
+.pin-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition:
+    opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Tooltip via CSS ::after */
+.pin-wrapper::after {
+  content: attr(data-name);
+  position: absolute;
+  bottom: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(26, 18, 11, 0.92);
+  color: rgba(255, 248, 235, 0.96);
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 5px 10px;
+  border-radius: 6px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.18s ease;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 248, 235, 0.12);
+}
+
+.pin-wrapper:hover::after {
+  opacity: 1;
+}
+
+/* ── Pin body (the diamond) ─────────────────────────────────── */
+.pin-body {
+  width: 38px;
+  height: 38px;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  background: var(--pin-color, #b5432c);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2.5px solid rgba(255, 255, 255, 0.85);
+  box-shadow:
+    0 4px 14px rgba(0, 0, 0, 0.28),
+    0 1px 4px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  transition:
+    width 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+    height 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.3s ease;
+}
+
+.pin-body svg {
+  transform: rotate(45deg);
+  flex-shrink: 0;
+}
+
+/* ── Pin tip (the point at the bottom) ──────────────────────── */
+.pin-tip {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 8px solid var(--pin-color, #b5432c);
+  margin-top: -1px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.25));
+}
+
+/* ── Glow halo (visible when selected) ─────────────────────── */
+.pin-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  width: 46px;
+  height: 46px;
+  border-radius: 50% 50% 50% 0;
+  background: var(--pin-color, #b5432c);
+  opacity: 0;
+  filter: blur(10px);
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+}
+
+/* ── HOVER state ─────────────────────────────────────────────── */
+.pin-wrapper:hover .pin-body {
+  box-shadow:
+    0 6px 20px rgba(0, 0, 0, 0.35),
+    0 2px 6px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  width: 42px;
+  height: 42px;
+}
+
+/* ── SELECTED state ──────────────────────────────────────────── */
+.pin-wrapper.is-selected {
+  transform: translateY(-4px) scale(1.08);
+  z-index: 1000 !important;
+}
+
+.pin-wrapper.is-selected .pin-body {
+  width: 46px;
+  height: 46px;
+  border-width: 3px;
+  border-color: rgba(255, 255, 255, 1);
+  box-shadow:
+    0 8px 28px rgba(0, 0, 0, 0.4),
+    0 2px 8px rgba(0, 0, 0, 0.25),
+    0 0 0 4px rgba(255, 255, 255, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.pin-wrapper.is-selected .pin-glow {
+  opacity: 0.55;
+  animation: pin-pulse 2s ease-in-out infinite;
+}
+
+/* ── DIMMED state (another pin is selected) ─────────────────── */
+.pin-wrapper.is-dimmed {
+  opacity: 0.28;
+  transform: scale(0.82);
+}
+
+.pin-wrapper.is-dimmed:hover {
+  opacity: 0.72;
+  transform: scale(0.92);
+}
+
+/* ── Animations ──────────────────────────────────────────────── */
+@keyframes pin-pulse {
+  0%, 100% { transform: translate(-50%, -50%) rotate(-45deg) scale(1); opacity: 0.55; }
+  50% { transform: translate(-50%, -50%) rotate(-45deg) scale(1.5); opacity: 0.2; }
+}
+
+/* ── Ripple overlay (rendered by React) ─────────────────────── */
+.map-ripple-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 500;
+  overflow: hidden;
+}
+
+.map-ripple-origin {
+  position: absolute;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+/* ── Attribution ─────────────────────────────────────────────── */
+.leaflet-control-attribution {
+  background: rgba(255, 251, 245, 0.75) !important;
+  backdrop-filter: blur(8px);
+  border-radius: 6px 0 0 0 !important;
+  font-size: 10px !important;
+  color: var(--color-ink-faint) !important;
+}
+
+@media (max-width: 640px) {
+  .map-style-control {
+    top: 164px;
+    right: var(--space-3);
+    min-width: 220px;
+    padding: 8px;
+  }
+
+  .map-style-heading {
+    padding-bottom: 5px;
+  }
+
+  .map-style-option {
+    padding: 5px 3px 6px;
+    font-size: 9px;
+  }
+
+  .map-style-swatch {
+    width: 50px;
+    height: 22px;
+  }
+}
