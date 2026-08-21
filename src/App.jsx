@@ -1,9 +1,10 @@
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import MapView from "./components/MapView/MapView.jsx";
 import SearchFilterBar from "./components/SearchFilterBar/SearchFilterBar.jsx";
 import Timeline from "./components/Timeline/Timeline.jsx";
 import InfoPanel from "./components/InfoPanel/InfoPanel.jsx";
 import Header from "./components/Header/Header.jsx";
+import ArtParticles from "./components/ArtParticles/ArtParticles.jsx";
 import { useFilteredLocations } from "./hooks/useFilteredLocations.js";
 import locationsData from "./data/locations.json";
 
@@ -15,10 +16,14 @@ function toggleInSet(set, value) {
 }
 
 function App() {
-  const [selectedId, setSelectedId] = useState(null);
-  const [searchText, setSearchText] = useState("");
+  const [selectedId,       setSelectedId]       = useState(null);
+  const [searchText,       setSearchText]        = useState("");
   const [activeCategoryIds, setActiveCategoryIds] = useState(() => new Set());
-  const [activePeriodIds, setActivePeriodIds] = useState(() => new Set());
+  const [activePeriodIds,  setActivePeriodIds]   = useState(() => new Set());
+
+  /* Ref passed to ArtParticles; MapView calls burstRef.current(x,y,color)
+     when a pin is clicked, triggering a Three.js particle burst */
+  const burstRef = useRef(null);
 
   const filteredLocations = useFilteredLocations(locationsData, {
     searchText,
@@ -27,52 +32,49 @@ function App() {
   });
 
   const selectedLocation = useMemo(
-    () => locationsData.find((loc) => loc.id === selectedId) ?? null,
+    () => locationsData.find((l) => l.id === selectedId) ?? null,
     [selectedId]
   );
 
-  /* If a selected pin gets filtered out, deselect it */
+  /* Deselect if the selected pin was filtered out */
   const visibleSelectedId = useMemo(
-    () =>
-      filteredLocations.some((loc) => loc.id === selectedId) ? selectedId : null,
+    () => filteredLocations.some((l) => l.id === selectedId) ? selectedId : null,
     [filteredLocations, selectedId]
   );
 
   return (
     <div className="app">
-      {/* ── Full-screen map ─────────────────────────────── */}
+      {/* ── Three.js ambient particle canvas ────────────── */}
+      <ArtParticles burstRef={burstRef} />
+
+      {/* ── Full-screen Leaflet map ──────────────────────── */}
       <MapView
         locations={filteredLocations}
         selectedId={visibleSelectedId}
-        onSelectLocation={(id) =>
-          setSelectedId((prev) => (prev === id ? null : id))
-        }
+        onSelectLocation={(id) => setSelectedId((prev) => prev === id ? null : id)}
+        burstRef={burstRef}
       />
 
-      {/* ── Floating search + category chips ────────────── */}
+      {/* ── Floating glass search + category chips ───────── */}
       <SearchFilterBar
         searchText={searchText}
         onSearchTextChange={setSearchText}
         activeCategoryIds={activeCategoryIds}
-        onToggleCategory={(id) =>
-          setActiveCategoryIds((prev) => toggleInSet(prev, id))
-        }
+        onToggleCategory={(id) => setActiveCategoryIds((prev) => toggleInSet(prev, id))}
       />
 
-      {/* ── Floating brand card ──────────────────────────── */}
+      {/* ── Brand card ───────────────────────────────────── */}
       <Header locationCount={filteredLocations.length} />
 
       {/* ── Period timeline dock (bottom) ────────────────── */}
       <div className="timeline-dock">
         <Timeline
           activePeriodIds={activePeriodIds}
-          onTogglePeriod={(id) =>
-            setActivePeriodIds((prev) => toggleInSet(prev, id))
-          }
+          onTogglePeriod={(id) => setActivePeriodIds((prev) => toggleInSet(prev, id))}
         />
       </div>
 
-      {/* ── Detail panel ─────────────────────────────────── */}
+      {/* ── Maximalist detail panel ──────────────────────── */}
       <InfoPanel
         location={visibleSelectedId ? selectedLocation : null}
         onClose={() => setSelectedId(null)}
