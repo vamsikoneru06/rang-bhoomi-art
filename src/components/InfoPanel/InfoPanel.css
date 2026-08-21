@@ -1,0 +1,99 @@
+.info-panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(420px, 100%);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-panel);
+  z-index: 20;
+  overflow-y: auto;
+  padding: var(--space-6) var(--space-5) var(--space-8);
+}
+
+.info-panel-close {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  border: none;
+  background: var(--color-bg);
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  font-size: var(--text-lg);
+  line-height: 1;
+  color: var(--color-ink-soft);
+}
+
+.info-panel-eyebrow {
+  font-size: var(--text-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--chip-color, var(--color-accent));
+}
+
+.info-panel h2 {
+  font-size: var(--text-2xl);
+  margin: var(--space-1) 0 var(--space-2);
+}
+
+.info-panel-meta {
+  color: var(--color-ink-soft);
+  font-size: var(--text-sm);
+  margin-bottom: var(--space-5);
+}
+
+.info-panel section {
+  margin-bottom: var(--space-5);
+}
+
+.info-panel h3 {
+  font-size: var(--text-base);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-ink-faint);
+  margin-bottom: var(--space-2);
+}
+
+.info-panel ul {
+  margin: 0;
+  padding-left: var(--space-4);
+}
+
+.info-panel li {
+  margin-bottom: var(--space-1);
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-2);
+}
+
+.gallery-placeholder {
+  margin: 0;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, var(--chip-color, var(--color-accent)) 0%, var(--color-surface-alt) 100%);
+  display: flex;
+  align-items: flex-end;
+  padding: var(--space-2);
+}
+
+.gallery-placeholder figcaption {
+  font-size: var(--text-xs);
+  color: var(--color-surface);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+@media (max-width: 640px) {
+  .info-panel {
+    top: auto;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: min(75vh, 100%);
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  }
+}
