@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import * as THREE from "three";
-import { gsap } from "../lib/gsap.js";
+import { gsap } from "../../lib/gsap.js";
 
 /* Category palette colours (match tokens.css) */
 const PALETTE = [

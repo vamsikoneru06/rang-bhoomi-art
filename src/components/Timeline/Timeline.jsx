@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { flushSync } from "react-dom";
-import { gsap, Flip } from "../lib/gsap.js";
+import { gsap, Flip } from "../../lib/gsap.js";
 import { PERIODS } from "../../data/periods.js";
 import "./Timeline.css";
 

@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useRef } from "react";
-import { gsap, SplitText, ScrambleTextPlugin } from "../lib/gsap.js";
+import { gsap, SplitText, ScrambleTextPlugin } from "../../lib/gsap.js";
 import { getCategory } from "../../data/categories.js";
 import Gallery from "./Gallery.jsx";
 import "./InfoPanel.css";

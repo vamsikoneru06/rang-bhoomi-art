@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { gsap, ScrollTrigger } from "../lib/gsap.js";
+import { gsap, ScrollTrigger } from "../../lib/gsap.js";
 import { getCategory } from "../../data/categories.js";
 
 export default function Gallery({ images, categoryId }) {

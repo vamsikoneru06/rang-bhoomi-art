@@ -1,10 +1,11 @@
 import { MapContainer, TileLayer, Marker, useMap } from "react-leaflet";
 import L from "leaflet";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { gsap, DrawSVGPlugin } from "../lib/gsap.js";
+import { gsap } from "../../lib/gsap.js";
+import { animate, stagger } from "animejs";
 import { getMarkerHtml } from "./markerIcons.js";
 import { getCategory } from "../../data/categories.js";
+import PinPreviewCard from "../PinPreviewCard/PinPreviewCard.jsx";
 import "leaflet/dist/leaflet.css";
 import "./MapView.css";
 
@@ -34,107 +35,180 @@ function FlyToSelection({ locations, selectedId }) {
     if (!selectedId) return;
     const loc = locations.find((l) => l.id === selectedId);
     if (!loc) return;
-    map.flyTo(loc.coordinates, Math.max(map.getZoom(), 7), { duration: 0.7, easeLinearity: 0.25 });
+    map.flyTo(loc.coordinates, Math.max(map.getZoom(), 7), { duration: 0.7 });
   }, [selectedId, locations, map]);
   return null;
 }
 
-/* ── Framer Motion + GSAP DrawSVG circle per ripple ── */
-function Ripple({ x, y, color, onDone }) {
+/* ── Engineered click burst — GSAP DrawSVG + anime.js v4 starburst ── */
+function ClickEffect({ x, y, color, onDone }) {
+  const wrapRef   = useRef(null);
   const circleRef = useRef(null);
 
   useEffect(() => {
-    if (!circleRef.current) return;
-    /* DrawSVGPlugin: stroke draws from 0% to 100% then vanishes */
+    const wrap = wrapRef.current;
+    if (!wrap) return;
+
+    /* GSAP: DrawSVGPlugin traces a circle stroke around the click point */
     gsap.set(circleRef.current, { drawSVG: "0%" });
-    gsap.to(circleRef.current, {
-      drawSVG: "100%",
-      duration: 0.65,
-      ease: "power2.out",
+    gsap.to(circleRef.current, { drawSVG: "100%", duration: 0.62, ease: "power2.out" });
+    gsap.to(circleRef.current, { opacity: 0, duration: 0.28, delay: 0.78 });
+
+    /* anime.js v4: 8 dots burst radially outward */
+    const dots = wrap.querySelectorAll(".burst-dot");
+    animate(dots, {
+      translateX: (el, i) => Math.cos(i * Math.PI / 4) * 54,
+      translateY: (el, i) => Math.sin(i * Math.PI / 4) * 54,
+      scale: [2.4, 0],
+      opacity: [1, 0],
+      duration: 580,
+      delay: stagger(20),
+      ease: "outExpo",
     });
-    gsap.to(circleRef.current, {
-      opacity: 0,
-      duration: 0.3,
-      delay: 0.8,
+
+    /* anime.js v4: outer ring expands and fades */
+    animate(wrap.querySelector(".anime-ring"), {
+      scale: [0.3, 3.4],
+      opacity: [0.65, 0],
+      duration: 720,
+      ease: "outCirc",
+    });
+
+    /* anime.js v4: inner fill flash, calls onDone when complete */
+    animate(wrap.querySelector(".anime-fill"), {
+      scale: [0, 2.6],
+      opacity: [0.6, 0],
+      duration: 430,
+      ease: "outQuart",
+      onComplete: onDone,
     });
   }, []);
 
+  const DOT_COUNT = 8;
+  const DOT_R = 4; // radius in px for centering
+
   return (
     <div
-      className="map-ripple-origin"
-      style={{ position: "absolute", left: x, top: y, pointerEvents: "none" }}
+      ref={wrapRef}
+      style={{
+        position: "absolute",
+        left: x,
+        top: y,
+        pointerEvents: "none",
+        zIndex: 500,
+      }}
     >
-      {/* GSAP DrawSVG circle */}
+      {/* anime.js starburst dots — centered with negative margins */}
+      {Array.from({ length: DOT_COUNT }).map((_, i) => (
+        <div
+          key={i}
+          className="burst-dot"
+          style={{
+            position: "absolute",
+            width: DOT_R * 2,
+            height: DOT_R * 2,
+            borderRadius: "50%",
+            background: color ?? "#b5432c",
+            left: "50%",
+            top: "50%",
+            marginLeft: -DOT_R,
+            marginTop: -DOT_R,
+            willChange: "transform, opacity",
+          }}
+        />
+      ))}
+
+      {/* anime.js outer ring — 44×44, centered */}
+      <div
+        className="anime-ring"
+        style={{
+          position: "absolute",
+          width: 44,
+          height: 44,
+          borderRadius: "50%",
+          border: `2px solid ${color ?? "#b5432c"}`,
+          left: "50%",
+          top: "50%",
+          marginLeft: -22,
+          marginTop: -22,
+          opacity: 0.65,
+        }}
+      />
+
+      {/* anime.js inner fill flash — 22×22, centered */}
+      <div
+        className="anime-fill"
+        style={{
+          position: "absolute",
+          width: 22,
+          height: 22,
+          borderRadius: "50%",
+          background: color ?? "#b5432c",
+          left: "50%",
+          top: "50%",
+          marginLeft: -11,
+          marginTop: -11,
+          opacity: 0.6,
+        }}
+      />
+
+      {/* GSAP DrawSVG circle stroke — SVG centered at origin */}
       <svg
-        style={{ position: "absolute", transform: "translate(-50%,-50%)", overflow: "visible" }}
-        width="0" height="0" viewBox="0 0 0 0"
+        style={{ position: "absolute", left: "50%", top: "50%", overflow: "visible" }}
+        width="0"
+        height="0"
       >
         <circle
           ref={circleRef}
-          cx="0" cy="0" r="36"
+          cx="0"
+          cy="0"
+          r="40"
           fill="none"
           stroke={color ?? "#b5432c"}
           strokeWidth="2.5"
           strokeLinecap="round"
         />
       </svg>
-
-      {/* Framer Motion concentric waves */}
-      {[0, 0.12, 0.24].map((delay, i) => (
-        <motion.div
-          key={i}
-          style={{
-            position: "absolute",
-            borderRadius: "50%",
-            border: `${2 - i * 0.5}px solid ${color ?? "#b5432c"}`,
-            transform: "translate(-50%, -50%)",
-          }}
-          initial={{ width: 0, height: 0, opacity: 0.8 - i * 0.15 }}
-          animate={{ width: 140 + i * 50, height: 140 + i * 50, opacity: 0 }}
-          transition={{ duration: 0.85, ease: "easeOut", delay }}
-        />
-      ))}
-
-      {/* Fill pulse */}
-      <motion.div
-        style={{
-          position: "absolute",
-          borderRadius: "50%",
-          background: color ?? "#b5432c",
-          transform: "translate(-50%,-50%)",
-        }}
-        initial={{ width: 20, height: 20, opacity: 0.6 }}
-        animate={{ width: 70, height: 70, opacity: 0 }}
-        transition={{ duration: 0.55, ease: "easeOut" }}
-        onAnimationComplete={onDone}
-      />
     </div>
   );
 }
 
-export default function MapView({ locations, selectedId, onSelectLocation, burstRef }) {
-  const mapRef   = useRef(null);
-  const [ripples, setRipples] = useState([]);
+/* ── Main MapView ─────────────────────────────────────────────── */
+export default function MapView({ locations, selectedId, onSelectLocation }) {
+  const mapRef       = useRef(null);
+  const [effects,    setEffects]    = useState([]);
+  const [hoveredLoc, setHoveredLoc] = useState(null);
+  const [hoverPos,   setHoverPos]   = useState({ x: 0, y: 0 });
 
-  const removeRipple = useCallback((id) => {
-    setRipples((prev) => prev.filter((r) => r.id !== id));
+  const removeEffect = useCallback((id) => {
+    setEffects((prev) => prev.filter((e) => e.id !== id));
   }, []);
 
+  /* Dismiss hover card when a panel opens */
+  useEffect(() => {
+    if (selectedId) setHoveredLoc(null);
+  }, [selectedId]);
+
+  const handleMarkerHover = useCallback((location) => {
+    if (!mapRef.current || selectedId) return;
+    if (!location) { setHoveredLoc(null); return; }
+    const pt = mapRef.current.latLngToContainerPoint(location.coordinates);
+    setHoverPos({ x: pt.x, y: pt.y });
+    setHoveredLoc(location);
+  }, [selectedId]);
+
   const handleMarkerClick = useCallback((location) => {
+    setHoveredLoc(null);
     if (mapRef.current) {
       const pt  = mapRef.current.latLngToContainerPoint(location.coordinates);
       const cat = getCategory(location.category);
-      const id  = Date.now() + Math.random();
-
-      setRipples((prev) => [...prev, { id, x: pt.x, y: pt.y, color: cat?.color ?? "#b5432c" }]);
-
-      /* Trigger Three.js particle burst */
-      if (burstRef?.current) {
-        burstRef.current(pt.x, pt.y, cat?.color ?? "#b5432c");
-      }
+      setEffects((prev) => [
+        ...prev,
+        { id: Date.now() + Math.random(), x: pt.x, y: pt.y, color: cat?.color ?? "#b5432c" },
+      ]);
     }
     onSelectLocation(location.id);
-  }, [onSelectLocation, burstRef]);
+  }, [onSelectLocation]);
 
   const icons = useMemo(() => {
     const m = new Map();
@@ -160,18 +234,36 @@ export default function MapView({ locations, selectedId, onSelectLocation, burst
             key={loc.id}
             position={loc.coordinates}
             icon={icons.get(loc.id)}
-            eventHandlers={{ click: () => handleMarkerClick(loc) }}
+            eventHandlers={{
+              click:     () => handleMarkerClick(loc),
+              mouseover: () => handleMarkerHover(loc),
+              mouseout:  () => handleMarkerHover(null),
+            }}
           />
         ))}
       </MapContainer>
 
-      {/* Ripple + DrawSVG overlay */}
+      {/* ── Overlay: click burst effects + hover preview card ── */}
       <div className="map-ripple-layer">
-        <AnimatePresence>
-          {ripples.map((r) => (
-            <Ripple key={r.id} x={r.x} y={r.y} color={r.color} onDone={() => removeRipple(r.id)} />
-          ))}
-        </AnimatePresence>
+        {effects.map((e) => (
+          <ClickEffect
+            key={e.id}
+            x={e.x}
+            y={e.y}
+            color={e.color}
+            onDone={() => removeEffect(e.id)}
+          />
+        ))}
+
+        {hoveredLoc && !selectedId && (
+          <PinPreviewCard
+            key={hoveredLoc.id}
+            location={hoveredLoc}
+            x={hoverPos.x}
+            y={hoverPos.y}
+            onSelect={() => handleMarkerClick(hoveredLoc)}
+          />
+        )}
       </div>
     </div>
   );

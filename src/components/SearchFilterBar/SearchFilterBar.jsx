@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { gsap } from "../lib/gsap.js";
+import { gsap } from "../../lib/gsap.js";
 import { CATEGORIES } from "../../data/categories.js";
 import "./SearchFilterBar.css";
 

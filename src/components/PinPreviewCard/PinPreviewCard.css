@@ -1,0 +1,159 @@
+/* ================================================================
+   PIN PREVIEW CARD
+   ================================================================ */
+.pin-card {
+  position: absolute;
+  width: 224px;
+  border-radius: 16px;
+  overflow: visible;      /* arrow sticks outside */
+  cursor: pointer;
+  pointer-events: auto;
+  z-index: 600;
+  will-change: transform, opacity;
+  /* clip to card body */
+}
+
+/* Inner content box (clips the image correctly) */
+.pin-card-inner {
+  border-radius: 16px;
+  overflow: hidden;
+  background: #fffbf5;
+  box-shadow:
+    0 20px 60px rgba(43, 33, 24, 0.26),
+    0 6px 16px rgba(43, 33, 24, 0.14),
+    0 0 0 1.5px rgba(255, 255, 255, 0.65),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+/* ── Hero image block ─────────────────────────────────────── */
+.pin-card-img-wrap {
+  position: relative;
+  height: 148px;
+  overflow: hidden;
+  background: linear-gradient(145deg, var(--cat-color), #2b1810 130%);
+}
+
+.pin-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  will-change: clip-path;
+}
+
+/* Gradient overlay on image */
+.pin-card-img-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(18, 8, 4, 0.58) 0%, transparent 55%);
+  z-index: 1;
+}
+
+/* anime.js shimmer sweep */
+.pin-card-shimmer {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.38) 50%,
+    transparent 100%
+  );
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Category badge over image */
+.pin-card-badge {
+  position: absolute;
+  bottom: 10px;
+  left: 11px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-body);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 248, 235, 0.92);
+  z-index: 3;
+}
+
+.pin-card-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--cat-color);
+  box-shadow: 0 0 8px var(--cat-color);
+  flex-shrink: 0;
+}
+
+/* ── Text body ─────────────────────────────────────────────── */
+.pin-card-body {
+  padding: 11px 13px 13px;
+}
+
+.pin-card-name {
+  font-family: var(--font-display);
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--color-ink);
+  margin: 0 0 4px;
+  line-height: 1.22;
+  letter-spacing: -0.01em;
+}
+
+.pin-card-meta {
+  font-family: var(--font-body);
+  font-size: 10.5px;
+  color: var(--color-ink-faint);
+  margin: 0;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+/* ── Arrow tip pointing down to the pin ───────────────────── */
+.pin-card-arrow {
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 11px solid #fffbf5;
+  filter: drop-shadow(0 5px 5px rgba(43, 33, 24, 0.14));
+}
+
+/* ── Hover lift ───────────────────────────────────────────── */
+.pin-card-inner:hover {
+  box-shadow:
+    0 24px 70px rgba(43, 33, 24, 0.3),
+    0 8px 20px rgba(43, 33, 24, 0.18),
+    0 0 0 1.5px rgba(255, 255, 255, 0.7);
+}
+
+/* ── Explore hint ─────────────────────────────────────────── */
+.pin-card-cta {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 7px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--cat-color);
+  opacity: 0.85;
+}
+
+.pin-card-cta-arrow {
+  font-size: 12px;
+  transition: transform 0.18s ease;
+}
+
+.pin-card-inner:hover .pin-card-cta-arrow {
+  transform: translateX(3px);
+}
