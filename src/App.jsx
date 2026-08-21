@@ -9,11 +9,8 @@ import locationsData from "./data/locations.json";
 
 function toggleInSet(set, value) {
   const next = new Set(set);
-  if (next.has(value)) {
-    next.delete(value);
-  } else {
-    next.add(value);
-  }
+  if (next.has(value)) next.delete(value);
+  else next.add(value);
   return next;
 }
 
@@ -30,31 +27,56 @@ function App() {
   });
 
   const selectedLocation = useMemo(
-    () => locationsData.find((location) => location.id === selectedId) ?? null,
+    () => locationsData.find((loc) => loc.id === selectedId) ?? null,
     [selectedId]
+  );
+
+  /* If a selected pin gets filtered out, deselect it */
+  const visibleSelectedId = useMemo(
+    () =>
+      filteredLocations.some((loc) => loc.id === selectedId) ? selectedId : null,
+    [filteredLocations, selectedId]
   );
 
   return (
     <div className="app">
+      {/* ── Full-screen map ─────────────────────────────── */}
       <MapView
         locations={filteredLocations}
-        selectedId={selectedId}
-        onSelectLocation={setSelectedId}
+        selectedId={visibleSelectedId}
+        onSelectLocation={(id) =>
+          setSelectedId((prev) => (prev === id ? null : id))
+        }
       />
-      <Header />
+
+      {/* ── Floating search + category chips ────────────── */}
       <SearchFilterBar
         searchText={searchText}
         onSearchTextChange={setSearchText}
         activeCategoryIds={activeCategoryIds}
-        onToggleCategory={(id) => setActiveCategoryIds((prev) => toggleInSet(prev, id))}
+        onToggleCategory={(id) =>
+          setActiveCategoryIds((prev) => toggleInSet(prev, id))
+        }
       />
+
+      {/* ── Floating brand card ──────────────────────────── */}
+      <Header locationCount={filteredLocations.length} />
+
+      {/* ── Period timeline dock (bottom) ────────────────── */}
       <div className="timeline-dock">
         <Timeline
           activePeriodIds={activePeriodIds}
-          onTogglePeriod={(id) => setActivePeriodIds((prev) => toggleInSet(prev, id))}
+          onTogglePeriod={(id) =>
+            setActivePeriodIds((prev) => toggleInSet(prev, id))
+          }
         />
       </div>
-      <InfoPanel location={selectedLocation} onClose={() => setSelectedId(null)} />
+
+      {/* ── Detail panel ─────────────────────────────────── */}
+      <InfoPanel
+        location={visibleSelectedId ? selectedLocation : null}
+        onClose={() => setSelectedId(null)}
+      />
     </div>
   );
 }

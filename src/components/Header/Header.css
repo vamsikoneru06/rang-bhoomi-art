@@ -3,32 +3,47 @@
   bottom: var(--space-4);
   left: var(--space-4);
   z-index: 10;
-  background: var(--color-surface);
+  padding: var(--space-3) var(--space-5);
+  max-width: 280px;
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-card);
-  padding: var(--space-3) var(--space-4);
-  max-width: 320px;
 }
 
 .app-header h1 {
   font-size: var(--text-xl);
+  font-weight: 700;
   color: var(--color-accent);
+  letter-spacing: -0.03em;
+  line-height: 1;
 }
 
-.app-header p {
+.app-header-sub {
   margin: var(--space-1) 0 0;
-  font-size: var(--text-sm);
-  color: var(--color-ink-soft);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--color-ink-faint);
+  font-weight: 500;
+}
+
+.app-header-count {
+  display: inline-block;
+  margin-top: var(--space-2);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  opacity: 0.7;
 }
 
 @media (max-width: 640px) {
   .app-header {
-    max-width: calc(100% - var(--space-6));
-    bottom: 96px;
+    bottom: 90px;
+    max-width: calc(100% - 40px);
+    right: var(--space-4);
     padding: var(--space-2) var(--space-3);
   }
 
-  .app-header p {
+  .app-header-sub {
     display: none;
   }
 }

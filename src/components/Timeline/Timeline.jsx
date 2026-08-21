@@ -10,7 +10,8 @@ export default function Timeline({ activePeriodIds, onTogglePeriod }) {
           <button
             key={period.id}
             type="button"
-            className={isActive ? "timeline-pill is-active" : "timeline-pill"}
+            className={`timeline-pill glass glass-btn${isActive ? " is-active" : ""}`}
+            style={{ "--btn-rgb": "181,67,44" }}
             aria-pressed={isActive}
             onClick={() => onTogglePeriod(period.id)}
           >
