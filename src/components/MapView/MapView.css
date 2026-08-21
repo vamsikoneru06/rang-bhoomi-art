@@ -1,0 +1,37 @@
+.map-view {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.map-view .leaflet-container {
+  width: 100%;
+  height: 100%;
+  background: var(--color-bg);
+  font-family: var(--font-body);
+}
+
+.category-marker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  background: var(--marker-color, var(--color-accent));
+  box-shadow: 0 3px 8px rgba(43, 33, 24, 0.35);
+  border: 2px solid var(--color-surface);
+}
+
+.category-marker svg {
+  width: 16px;
+  height: 16px;
+  transform: rotate(45deg);
+}
+
+.category-marker.is-selected {
+  width: 40px;
+  height: 40px;
+  box-shadow: 0 4px 14px rgba(43, 33, 24, 0.5);
+}
