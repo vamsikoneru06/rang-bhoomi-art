@@ -32,13 +32,15 @@
 **Interfaces:**
 - Produces: a running Vite dev server on `npm run dev`; `<div id="root">` in `index.html` that `main.jsx` mounts into; `App` component (currently a stub) that later tasks extend.
 
-- [ ] **Step 1: Scaffold the Vite React app**
+- [ ] **Step 1: Scaffold the Vite React app into a temp directory, then copy it into place**
+
+The project directory already contains `docs/` and `.git/`, and `npm create vite` prompts interactively when the target directory isn't empty — that prompt would hang a non-interactive shell. Avoid it by scaffolding into a fresh, empty subdirectory, then copying the generated files (including dotfiles) into the project root without touching `docs/` or `.git/`:
 
 ```bash
-npm create vite@latest . -- --template react
+npm create vite@latest .vite-scaffold-tmp -- --template react
+cp -r .vite-scaffold-tmp/. .
+rm -rf .vite-scaffold-tmp
 ```
-
-When prompted about the current directory not being empty (it has `docs/` and `.git/`), confirm to proceed in the current directory.
 
 - [ ] **Step 2: Install runtime dependencies**
 
@@ -48,11 +50,12 @@ npm install react-leaflet leaflet framer-motion
 
 - [ ] **Step 3: Add `.gitignore` entries**
 
-Vite's scaffold creates a `.gitignore` already covering `node_modules` and `dist`. Open it and confirm those two lines exist; if not, add:
+Vite's scaffold creates a `.gitignore` already covering `node_modules` and `dist`. Open it and confirm those two lines exist; if not, add them. Also add a `.superpowers/` line (a scratch directory used by the development tooling that drives this build — it must never be committed):
 
 ```
 node_modules
 dist
+.superpowers/
 ```
 
 - [ ] **Step 4: Replace the default `index.html` head with project title + Google Fonts**
