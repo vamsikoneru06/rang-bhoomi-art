@@ -4,6 +4,7 @@
   overflow-x: auto;
   padding: 10px 14px;
   scrollbar-width: none;
+  will-change: opacity;
 }
 
 .timeline::-webkit-scrollbar {
@@ -12,6 +13,7 @@
 
 .timeline-pill {
   flex: none;
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -22,13 +24,14 @@
   text-align: left;
   cursor: pointer;
   color: var(--color-ink-soft);
+  overflow: hidden;
   transition:
     transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1),
     color 0.18s ease;
+  will-change: transform, box-shadow;
 }
 
 .timeline-pill:hover {
-  transform: translateY(-2px);
   color: var(--color-ink);
 }
 
@@ -52,6 +55,35 @@
 
 .timeline-pill.is-active span {
   opacity: 0.85;
+}
+
+/* ── Active pill breathing glow ─────────────────────────── */
+.timeline-pill.is-active::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: rgba(181, 67, 44, 0.15);
+  animation: pillGlow 2.5s ease-in-out infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes pillGlow {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.04); }
+}
+
+/* ── Ink ripple from click point ────────────────────────── */
+.timeline-ripple {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.45), transparent 70%);
+  transform: translate(-50%, -50%) scale(0);
+  pointer-events: none;
+  z-index: 0;
 }
 
 @media (max-width: 640px) {

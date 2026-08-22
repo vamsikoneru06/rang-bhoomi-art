@@ -344,6 +344,77 @@
   letter-spacing: 0.02em;
 }
 
+/* ── Lightbox overlay ────────────────────────────────────── */
+.gallery-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: rgba(20, 10, 5, 0.92);
+  backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  cursor: pointer;
+  padding: var(--space-6);
+}
+
+.gallery-lightbox img {
+  max-width: 90vw;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: var(--radius-md);
+  box-shadow: 0 20px 80px rgba(0, 0, 0, 0.5);
+}
+
+.gallery-lightbox-close {
+  position: absolute;
+  top: var(--space-5);
+  right: var(--space-5);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  color: rgba(255, 248, 235, 0.9);
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.gallery-lightbox-close:hover {
+  background: rgba(181, 67, 44, 0.6);
+  transform: scale(1.1) rotate(90deg);
+}
+
+.gallery-lightbox-caption {
+  margin-top: var(--space-4);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: rgba(255, 248, 235, 0.7);
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+
+/* ── Gallery item click cursor ───────────────────────────── */
+.gallery-item {
+  cursor: pointer;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.06);
+}
+
+/* ── Close button transition for GSAP rotation ───────────── */
+.info-close {
+  will-change: transform;
+  transition: none; /* Let GSAP handle all transitions */
+}
+
 /* ── Mobile — bottom sheet ───────────────────────────────────── */
 @media (max-width: 640px) {
   .info-panel {
@@ -358,5 +429,9 @@
 
   .info-hero {
     height: 220px;
+  }
+
+  .gallery-lightbox {
+    padding: var(--space-3);
   }
 }

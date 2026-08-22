@@ -1,7 +1,7 @@
 import { MapContainer, TileLayer, Marker, useMap } from "react-leaflet";
 import L from "leaflet";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { gsap } from "../../lib/gsap.js";
+import { gsap, Flip } from "../../lib/gsap.js";
 import { animate, stagger } from "animejs";
 import { getMarkerHtml } from "./markerIcons.js";
 import { getCategory } from "../../data/categories.js";
@@ -197,12 +197,14 @@ function ClickEffect({ x, y, color, onDone }) {
 }
 
 /* ── Main MapView ─────────────────────────────────────────────── */
-export default function MapView({ locations, selectedId, onSelectLocation }) {
+export default function MapView({ locations, selectedId, onSelectLocation, visible = true }) {
   const mapRef       = useRef(null);
   const [effects,    setEffects]    = useState([]);
   const [hoveredLoc, setHoveredLoc] = useState(null);
   const [hoverPos,   setHoverPos]   = useState({ x: 0, y: 0 });
   const [mapStyle,   setMapStyle]   = useState("paper");
+  const [pinsReady,  setPinsReady]  = useState(false);
+  const styleControlRef = useRef(null);
 
   const removeEffect = useCallback((id) => {
     setEffects((prev) => prev.filter((e) => e.id !== id));
@@ -212,6 +214,33 @@ export default function MapView({ locations, selectedId, onSelectLocation }) {
   useEffect(() => {
     if (selectedId) setHoveredLoc(null);
   }, [selectedId]);
+
+  /* ── Pin drop-in animation when map becomes visible ──── */
+  useEffect(() => {
+    if (!visible || pinsReady) return;
+    // Give the map a moment to render markers
+    const timer = setTimeout(() => {
+      const container = document.querySelector(".leaflet-marker-pane");
+      if (container) {
+        const pins = container.querySelectorAll(".leaflet-marker-icon");
+        gsap.fromTo(
+          pins,
+          { y: -40, opacity: 0, scale: 0.5 },
+          {
+            y: 0,
+            opacity: 1,
+            scale: 1,
+            duration: 0.6,
+            ease: "back.out(1.8)",
+            stagger: { each: 0.04, from: "random" },
+            clearProps: "transform,opacity",
+          }
+        );
+      }
+      setPinsReady(true);
+    }, 600);
+    return () => clearTimeout(timer);
+  }, [visible, pinsReady]);
 
   const handleMarkerHover = useCallback((location) => {
     if (!mapRef.current || selectedId) return;
@@ -233,6 +262,56 @@ export default function MapView({ locations, selectedId, onSelectLocation }) {
     }
     onSelectLocation(location.id);
   }, [onSelectLocation]);
+
+  /* ── Basemap switcher click with GSAP Flip ─────────────── */
+  function handleMapStyleChange(id) {
+    if (!styleControlRef.current || id === mapStyle) return;
+
+    /* Capture state before change */
+    const state = Flip.getState(
+      styleControlRef.current.querySelectorAll(".map-style-option"),
+      { props: "background,border-color,color" }
+    );
+
+    setMapStyle(id);
+
+    /* Animate the FLIP */
+    requestAnimationFrame(() => {
+      Flip.from(state, {
+        duration: 0.35,
+        ease: "power2.inOut",
+        scale: true,
+      });
+
+      /* Bounce the selected option */
+      const active = styleControlRef.current.querySelector(`[data-style-id="${id}"]`);
+      if (active) {
+        gsap.from(active, { scale: 0.9, duration: 0.35, ease: "back.out(2)" });
+      }
+    });
+  }
+
+  /* ── Basemap option hover ──────────────────────────────── */
+  function handleStyleHover(e) {
+    gsap.to(e.currentTarget, {
+      y: -2,
+      scale: 1.04,
+      boxShadow: "0 6px 16px rgba(43, 33, 24, 0.15)",
+      duration: 0.22,
+      ease: "power2.out",
+    });
+  }
+
+  function handleStyleLeave(e) {
+    gsap.to(e.currentTarget, {
+      y: 0,
+      scale: 1,
+      boxShadow: "",
+      duration: 0.22,
+      ease: "power2.out",
+      clearProps: "boxShadow",
+    });
+  }
 
   const icons = useMemo(() => {
     const m = new Map();
@@ -268,7 +347,11 @@ export default function MapView({ locations, selectedId, onSelectLocation }) {
         ))}
       </MapContainer>
 
-      <div className="map-style-control glass glass-card" aria-label="Choose a map view">
+      <div
+        ref={styleControlRef}
+        className="map-style-control glass glass-card"
+        aria-label="Choose a map view"
+      >
         <div className="map-style-heading">
           <span className="map-style-kicker">Basemap</span>
           <span className="map-style-scope">Every period</span>
@@ -280,11 +363,14 @@ export default function MapView({ locations, selectedId, onSelectLocation }) {
               <button
                 key={id}
                 type="button"
+                data-style-id={id}
                 className={`map-style-option${isActive ? " is-active" : ""}`}
                 aria-pressed={isActive}
                 aria-label={`${style.label}: ${style.hint}`}
                 title={style.hint}
-                onClick={() => setMapStyle(id)}
+                onClick={() => handleMapStyleChange(id)}
+                onMouseEnter={handleStyleHover}
+                onMouseLeave={handleStyleLeave}
               >
                 <span className={`map-style-swatch map-style-swatch--${id}`} aria-hidden="true" />
                 <span>{style.label}</span>

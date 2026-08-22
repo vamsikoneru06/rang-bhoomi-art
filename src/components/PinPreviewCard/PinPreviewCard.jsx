@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import { gsap } from "../../lib/gsap.js";
 import { animate, stagger } from "animejs";
 import { getCategory } from "../../data/categories.js";
+import { getPreviewUrl, getSrcSet } from "../../lib/imageUrls.js";
 import "./PinPreviewCard.css";
 
 export default function PinPreviewCard({ location, x, y, onSelect }) {
@@ -11,6 +12,10 @@ export default function PinPreviewCard({ location, x, y, onSelect }) {
   const shimmerRef = useRef(null);
   const category   = getCategory(location.category);
   const catColor   = category?.color ?? "#b5432c";
+
+  /* ── Optimized image URLs ──────────────────────────────── */
+  const previewSrc = location.heroImage ? getPreviewUrl(location.heroImage) : null;
+  const srcSet     = location.heroImage ? getSrcSet(location.heroImage) : "";
 
   /* ── Entry: GSAP scale-pop + anime.js shimmer + staggered text ── */
   useEffect(() => {
@@ -77,9 +82,16 @@ export default function PinPreviewCard({ location, x, y, onSelect }) {
   /* ── Hover lift ── */
   function handleMouseEnter() {
     gsap.to(innerRef.current, { y: -3, scale: 1.015, duration: 0.22, ease: "power2.out" });
+    /* Image subtle zoom */
+    if (imgRef.current) {
+      gsap.to(imgRef.current, { scale: 1.06, duration: 0.4, ease: "power2.out" });
+    }
   }
   function handleMouseLeave() {
     gsap.to(innerRef.current, { y: 0, scale: 1, duration: 0.22, ease: "power2.out" });
+    if (imgRef.current) {
+      gsap.to(imgRef.current, { scale: 1, duration: 0.4, ease: "power2.out" });
+    }
   }
 
   return (
@@ -100,11 +112,13 @@ export default function PinPreviewCard({ location, x, y, onSelect }) {
       <div ref={innerRef} className="pin-card-inner">
         {/* ── Hero image ── */}
         <div className="pin-card-img-wrap">
-          {location.heroImage ? (
+          {previewSrc ? (
             <img
               ref={imgRef}
               className="pin-card-img"
-              src={location.heroImage}
+              src={previewSrc}
+              srcSet={srcSet}
+              sizes="224px"
               alt={location.name}
               loading="lazy"
               decoding="async"

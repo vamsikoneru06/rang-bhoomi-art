@@ -1,0 +1,43 @@
+.img-shimmer-wrap {
+  position: relative;
+  overflow: hidden;
+  border-radius: inherit;
+  background: var(--color-surface-alt, #f2e9d8);
+}
+
+.img-shimmer-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Shimmer animation placeholder */
+.img-shimmer-placeholder {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    110deg,
+    var(--color-surface-alt, #f2e9d8) 0%,
+    var(--color-surface-alt, #f2e9d8) 30%,
+    rgba(255, 251, 245, 0.7) 50%,
+    var(--color-surface-alt, #f2e9d8) 70%,
+    var(--color-surface-alt, #f2e9d8) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmerSlide 1.8s ease-in-out infinite;
+  z-index: 2;
+  pointer-events: none;
+}
+
+@keyframes shimmerSlide {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Error fallback */
+.img-shimmer-fallback {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}

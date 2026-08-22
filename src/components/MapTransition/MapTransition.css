@@ -1,0 +1,49 @@
+.map-transition-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  overflow: hidden;
+  background-color: rgba(255, 251, 245, 0);
+  will-change: background-color, opacity;
+}
+
+.map-transition-ripple {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(
+    160deg,
+    rgba(255, 251, 245, 0.45) 0%,
+    rgba(255, 248, 238, 0.25) 100%
+  );
+  backdrop-filter: blur(40px) saturate(200%) brightness(1.05);
+  -webkit-backdrop-filter: blur(40px) saturate(200%) brightness(1.05);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow:
+    0 0 80px rgba(255, 251, 245, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  will-change: transform, backdrop-filter, opacity;
+  transform: scale(0.5);
+  transform-origin: center center;
+}
+
+.map-transition-particle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-accent, #b5432c);
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.map-transition-ring {
+  position: absolute;
+  overflow: visible;
+  pointer-events: none;
+}
