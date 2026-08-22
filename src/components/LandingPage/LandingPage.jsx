@@ -4,9 +4,9 @@ import { animate } from 'animejs';
 import './LandingPage.css';
 
 const HERO_IMAGES = [
-  'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Ajanta-maharashtra.jpg/1920px-Ajanta-maharashtra.jpg',
-  'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Tanjore_big_temple_overview_2.jpg/1920px-Tanjore_big_temple_overview_2.jpg',
-  'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/City_Palace%2C_Udaipur_2013.jpg/1920px-City_Palace%2C_Udaipur_2013.jpg'
+  'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Ajanta-maharashtra.jpg/1280px-Ajanta-maharashtra.jpg',
+  'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Tanjore_big_temple_overview_2.jpg/1280px-Tanjore_big_temple_overview_2.jpg',
+  'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/City_Palace%2C_Udaipur_2013.jpg/1280px-City_Palace%2C_Udaipur_2013.jpg'
 ];
 
 export const LandingPage = ({ onEnterMap, locationCount = 25 }) => {

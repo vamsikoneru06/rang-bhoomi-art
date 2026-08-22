@@ -1,64 +1,93 @@
 /**
- * Utility module for generating optimal Wikimedia Commons image URLs
+ * Utility module for generating optimal Wikimedia Commons image URLs.
+ *
+ * Wikimedia thumb URL structure:
+ *   https://upload.wikimedia.org/wikipedia/commons/thumb/{a}/{ab}/{Filename.ext}/{W}px-{Filename.ext}
+ *
+ * Wikimedia original URL structure:
+ *   https://upload.wikimedia.org/wikipedia/commons/{a}/{ab}/{Filename.ext}
  */
+
+const COMMONS_THUMB = "upload.wikimedia.org/wikipedia/commons/thumb/";
+const COMMONS_BASE  = "upload.wikimedia.org/wikipedia/commons/";
+
+/**
+ * Detect if a URL is a Wikimedia Commons thumb URL.
+ */
+function isWikimediaThumb(url) {
+  return typeof url === "string" && url.includes(COMMONS_THUMB);
+}
 
 /**
  * Get the highest resolution (original) URL from a Wikimedia thumb URL.
- * e.g. converts .../thumb/7/7d/File.jpg/1280px-File.jpg → .../commons/7/7d/File.jpg
+ * .../thumb/7/7d/File.jpg/1280px-File.jpg  →  .../commons/7/7d/File.jpg
  */
 export function getOriginalUrl(thumbUrl) {
-  if (!thumbUrl || typeof thumbUrl !== 'string') return thumbUrl;
-  
-  // Check if it's a Wikimedia thumb URL
-  const wikimediaCommonsRegex = /^(https:\/\/upload\.wikimedia\.org\/wikipedia\/commons)\/thumb\/(.+?)\/(.+?)\/(?:.+)$/i;
-  
-  const match = thumbUrl.match(wikimediaCommonsRegex);
-  if (match) {
-    const [, baseUrl, hash, filename] = match;
-    return `${baseUrl}/${hash}/${filename}`;
-  }
-  
-  return thumbUrl;
+  if (!thumbUrl || !isWikimediaThumb(thumbUrl)) return thumbUrl;
+
+  // Split at /thumb/ — left is the commons base, right is  {a}/{ab}/{File}/{Wpx-File}
+  const idx = thumbUrl.indexOf("/thumb/");
+  const base = thumbUrl.slice(0, idx);          // https://upload.wikimedia.org/wikipedia/commons
+  const rest = thumbUrl.slice(idx + 7);          // 7/7d/File.jpg/1280px-File.jpg
+
+  // Drop the LAST segment (the "1280px-File.jpg" part) to get "7/7d/File.jpg"
+  const lastSlash = rest.lastIndexOf("/");
+  if (lastSlash === -1) return thumbUrl;         // malformed, bail out
+  const pathWithoutThumb = rest.slice(0, lastSlash); // 7/7d/File.jpg
+
+  return `${base}/${pathWithoutThumb}`;
 }
 
 /**
  * Get a specific width thumbnail URL.
- * e.g. getThumbUrl(url, 1920) → .../thumb/7/7d/File.jpg/1920px-File.jpg
+ * Accepts either a thumb URL or an original URL.
+ *
+ * getThumbUrl(".../thumb/7/7d/File.jpg/1280px-File.jpg", 800)
+ *   → .../thumb/7/7d/File.jpg/800px-File.jpg
  */
 export function getThumbUrl(url, width) {
-  if (!url || typeof url !== 'string' || !width) return url;
-  
-  const originalUrl = getOriginalUrl(url);
-  if (originalUrl === url) {
-    // If it's not a recognizable thumb URL but happens to be an original URL:
-    const originalRegex = /^(https:\/\/upload\.wikimedia\.org\/wikipedia\/commons)\/(.+?)\/(.+)$/i;
-    const match = originalUrl.match(originalRegex);
-    if (match) {
-      const [, baseUrl, hash, filename] = match;
-      return `${baseUrl}/thumb/${hash}/${filename}/${width}px-${filename}`;
-    }
-    return url;
+  if (!url || typeof url !== "string" || !width) return url;
+
+  /* ── Already a thumb URL ───────────────────────────────── */
+  if (isWikimediaThumb(url)) {
+    // Replace the last path segment with the new width
+    const lastSlash = url.lastIndexOf("/");
+    if (lastSlash === -1) return url;
+
+    const basePath = url.slice(0, lastSlash); // .../thumb/7/7d/File.jpg
+
+    // Extract the real filename (second-to-last segment)
+    const secondLastSlash = basePath.lastIndexOf("/");
+    const filename = basePath.slice(secondLastSlash + 1); // File.jpg
+
+    return `${basePath}/${width}px-${filename}`;
   }
-  
-  // From original back to thumb
-  const originalRegex = /^(https:\/\/upload\.wikimedia\.org\/wikipedia\/commons)\/(.+?)\/(.+)$/i;
-  const match = originalUrl.match(originalRegex);
-  if (match) {
-    const [, baseUrl, hash, filename] = match;
-    return `${baseUrl}/thumb/${hash}/${filename}/${width}px-${filename}`;
+
+  /* ── Original (non-thumb) URL ─────────────────────────── */
+  if (url.includes(COMMONS_BASE)) {
+    const idx = url.indexOf(COMMONS_BASE);
+    const base = url.slice(0, idx + COMMONS_BASE.length - 1); // .../commons
+    const hashAndFile = url.slice(idx + COMMONS_BASE.length);  // 7/7d/File.jpg
+
+    // Extract filename (last segment)
+    const lastSlash = hashAndFile.lastIndexOf("/");
+    const filename = lastSlash === -1 ? hashAndFile : hashAndFile.slice(lastSlash + 1);
+
+    return `${base}/thumb/${hashAndFile}/${width}px-${filename}`;
   }
-  
-  return originalUrl;
+
+  // Not a Wikimedia URL, return as-is
+  return url;
 }
 
 /**
  * Generate a srcSet string for responsive images.
- * Returns '...800w, ...1280w, ...1920w'
+ * Only includes sizes ≤ 1280 to avoid 404s when originals are small.
  */
 export function getSrcSet(url) {
-  if (!url || typeof url !== 'string') return '';
-  const sizes = [400, 640, 800, 1024, 1280, 1920];
-  return sizes.map(w => `${getThumbUrl(url, w)} ${w}w`).join(', ');
+  if (!url || typeof url !== "string") return "";
+  const sizes = [400, 640, 800, 1280];
+  return sizes.map((w) => `${getThumbUrl(url, w)} ${w}w`).join(", ");
 }
 
 /**
@@ -71,8 +100,8 @@ export function getPreviewUrl(url) {
 
 /**
  * Get an optimal URL for a detail hero (large size).
- * Returns 1920px width thumbnail.
+ * Returns 1280px width thumbnail (safe — known to exist from the data).
  */
 export function getHeroUrl(url) {
-  return getThumbUrl(url, 1920);
+  return getThumbUrl(url, 1280);
 }
