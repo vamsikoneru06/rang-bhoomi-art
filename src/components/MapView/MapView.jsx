@@ -322,8 +322,8 @@ export default function MapView({ locations, selectedId, onSelectLocation, visib
   return (
     <div className={`map-view map-view--${mapStyle}`} style={{ position: "absolute", inset: 0 }}>
       <MapContainer
-        center={INDIA_CENTER} zoom={5} minZoom={4} maxZoom={12}
-        maxBounds={INDIA_BOUNDS} maxBoundsViscosity={0.85}
+        center={INDIA_CENTER} zoom={5} minZoom={5} maxZoom={12}
+        maxBounds={INDIA_BOUNDS} maxBoundsViscosity={1.0}
         scrollWheelZoom zoomControl={false}
       >
         <MapController mapRef={mapRef} />
