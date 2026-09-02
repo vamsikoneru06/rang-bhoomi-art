@@ -48,7 +48,15 @@ function buildIcon(location, selectedId) {
 
 function MapController({ mapRef }) {
   const map = useMap();
-  useEffect(() => { mapRef.current = map; }, [map, mapRef]);
+  useEffect(() => {
+    mapRef.current = map;
+    // Fit exactly to India bounds and lock that zoom as the minimum,
+    // so no surrounding region (Africa, SE Asia) is ever visible.
+    map.fitBounds(INDIA_BOUNDS, { padding: [10, 10] });
+    setTimeout(() => {
+      map.setMinZoom(map.getZoom());
+    }, 50);
+  }, [map, mapRef]);
   return null;
 }
 
