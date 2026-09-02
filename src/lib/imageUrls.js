@@ -82,20 +82,21 @@ export function getThumbUrl(url, width) {
 
 /**
  * Generate a srcSet string for responsive images.
- * Only includes sizes ≤ 1280 to avoid 404s when originals are small.
+ * Widths must be from Wikimedia's whitelisted thumbnail sizes
+ * (https://w.wiki/GHai) — any other width now returns HTTP 400.
  */
 export function getSrcSet(url) {
   if (!url || typeof url !== "string") return "";
-  const sizes = [400, 640, 800, 1280];
+  const sizes = [330, 500, 960, 1280];
   return sizes.map((w) => `${getThumbUrl(url, w)} ${w}w`).join(", ");
 }
 
 /**
  * Get an optimal URL for a preview card (small size).
- * Returns 640px width thumbnail.
+ * Returns 500px width thumbnail (a whitelisted Wikimedia size).
  */
 export function getPreviewUrl(url) {
-  return getThumbUrl(url, 640);
+  return getThumbUrl(url, 500);
 }
 
 /**

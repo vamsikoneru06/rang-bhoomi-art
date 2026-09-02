@@ -101,7 +101,7 @@ export default function Gallery({ images, categoryId }) {
           >
             {image.src ? (
               <img
-                src={getThumbUrl(image.src, 800)}
+                src={getThumbUrl(image.src, 960)}
                 srcSet={getSrcSet(image.src)}
                 sizes="(max-width: 640px) 50vw, 200px"
                 alt={image.alt}
